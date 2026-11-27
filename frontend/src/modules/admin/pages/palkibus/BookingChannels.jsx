@@ -162,7 +162,7 @@ const ChannelForm = ({ initial, buses, connectorTypes, onClose, onSaved }) => {
           </label>
           <label className="space-y-1 sm:col-span-2">
             <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Webhook URL (https, optional)</span>
-            <input className={inputClass} value={form.webhookUrl} onChange={set('webhookUrl')} placeholder="https://partner.example.com/palkibus/webhook" />
+            <input className={inputClass} value={form.webhookUrl} onChange={set('webhookUrl')} placeholder="https://partner.example.com/instaawheels/webhook" />
             <span className="block text-[11px] font-semibold text-slate-500">We POST every seat change on their buses here, signed with the webhook secret.</span>
           </label>
           <label className="space-y-1 sm:col-span-2"><span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Notes</span><input className={inputClass} value={form.notes} onChange={set('notes')} /></label>

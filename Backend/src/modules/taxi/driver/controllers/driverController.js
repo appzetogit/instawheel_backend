@@ -9549,7 +9549,7 @@ export const getOwnerBusBookingTicket = async (req, res) => {
   const serialized = serializeOwnerBusBooking(booking);
   const pnr = booking.pnr || booking.bookingCode || "";
   const seatLabels = (serialized.activeSeats || []).map((seat) => seat.seatLabel);
-  const qrText = ["PALKIBUS", pnr, booking.travelDate, booking.scheduleId, seatLabels.join(".")].join("|");
+  const qrText = ["INSTAAWHEELS_BUS", pnr, booking.travelDate, booking.scheduleId, seatLabels.join(".")].join("|");
 
   res.json({
     success: true,

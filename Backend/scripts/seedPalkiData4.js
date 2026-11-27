@@ -148,7 +148,7 @@ const run = async () => {
 
   // 7) push notifications + channels + preferences + gateways
   const notifs = [
-    ['Welcome to PALKI', 'Book your first ride with code WELCOME50 and save up to ₹75.', 'users'], ['Drive and earn more', 'Buy a Weekly Pass and keep zero commission on every ride.', 'drivers'],
+    ['Welcome to InstaaWheels', 'Book your first ride with code WELCOME50 and save up to ₹75.', 'users'], ['Drive and earn more', 'Buy a Weekly Pass and keep zero commission on every ride.', 'drivers'],
     ['Weekend offer', 'Flat 15% off on weekend rides. Use WEEKEND15.', 'all'], ['New airport pickups', 'Airport pickups now live in Indore and Lucknow.', 'all'],
   ];
   for (const [push_title, message, send_to] of notifs) {

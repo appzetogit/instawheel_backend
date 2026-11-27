@@ -421,7 +421,7 @@ export const completeBooking = async (bookingId) => {
     const marked = await EventBooking.updateOne({ _id: claimed._id, 'assignments._id': a._id, 'assignments.settledAt': null }, { $set: { 'assignments.$.settledAt': new Date(), 'assignments.$.driverShare': credit } });
     if (marked.modifiedCount) await creditEventWallet(a.driverId, credit, { bookingId: claimed._id, note: `${claimed.code} - ${a.vehicleNumber}` });
   }
-  notify({ userIds: [claimed.userId], title: 'Event completed', body: `${claimed.code} is completed. Thank you for choosing PALKI.`, bookingId: claimed._id });
+  notify({ userIds: [claimed.userId], title: 'Event completed', body: `${claimed.code} is completed. Thank you for choosing InstaaWheels.`, bookingId: claimed._id });
   notify({ driverIds: claimed.assignments.filter((a) => a.ownerType === 'driver').map((a) => a.driverId), title: 'Event earnings added', body: `${claimed.code}: your earnings were added to the event wallet.`, bookingId: claimed._id });
   return EventBooking.findById(claimed._id);
 };

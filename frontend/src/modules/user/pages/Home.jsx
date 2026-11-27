@@ -1548,7 +1548,7 @@ const Home = () => {
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ type: "spring", stiffness: 80, damping: 15 }}
-          className={`go-palki-banner relative overflow-hidden min-h-[420px] pb-32 flex flex-col justify-center items-center text-center p-8 transition-all duration-300 border-t w-full rounded-[24px] ${isDark
+          className={`go-instaawheels-banner go-palki-banner relative overflow-hidden min-h-[420px] pb-32 flex flex-col justify-center items-center text-center p-8 transition-all duration-300 border-t w-full rounded-[24px] ${isDark
             ? 'border-zinc-800 bg-[#05070D] shadow-[0_-12px_36px_rgba(0,0,0,0.4)]'
             : 'border-slate-200 bg-[#F8FAFC] shadow-[0_-8px_24px_rgba(15,23,42,0.04)]'
             }`}
@@ -1589,7 +1589,7 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="go-palki-content relative z-10 space-y-3 py-2 w-full max-w-sm"
+            className="go-instaawheels-content go-palki-content relative z-10 space-y-3 py-2 w-full max-w-sm"
           >
             <motion.h3
               initial={{ opacity: 0, y: -15 }}
@@ -1813,7 +1813,7 @@ const Home = () => {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, ease: [0.21, 1.02, 0.43, 1.01], delay: 0.32 }}
-                className="go-palki-section"
+                className="go-instaawheels-section go-palki-section"
               >
                 {footerSection}
               </motion.div>

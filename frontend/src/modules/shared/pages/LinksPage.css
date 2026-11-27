@@ -34,8 +34,9 @@
   font-weight: 800;
 }
 
-.logo-palki{
-  color: #FFB300;
+.logo-instaawheels,
+.logo-palki {
+  color: var(--color-primary, #02C101);
 }
 
 .logo-24 {

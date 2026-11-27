@@ -188,7 +188,7 @@ const route = (rows) => rows.map(([key, stopType, km, mealHalt]) => {
 
 const CATALOG = [
   {
-    serviceNumber: 'ZB-IND-DEL-01', operatorName: 'PALKI Bus Express', busName: 'Indore - Delhi Sleeper Express',
+    serviceNumber: 'ZB-IND-DEL-01', operatorName: 'InstaaWheels Bus Express', busName: 'Indore - Delhi Sleeper Express',
     registrationNumber: 'MP09ZB1001', coach: 'acSleeper', fares: { sleeper: 1499 }, busColor: '#1f2937',
     routeName: 'Indore to Delhi via Gwalior & Agra',
     points: route([
@@ -198,7 +198,7 @@ const CATALOG = [
     departures: ['17:30', '20:00'], returnDepartures: ['18:00'],
   },
   {
-    serviceNumber: 'ZB-IND-BPL-01', operatorName: 'PALKI Bus Volvo', busName: 'Indore - Bhopal Volvo Shuttle',
+    serviceNumber: 'ZB-IND-BPL-01', operatorName: 'InstaaWheels Bus Volvo', busName: 'Indore - Bhopal Volvo Shuttle',
     registrationNumber: 'MP09ZB1002', coach: 'volvoSeater', fares: { window: 599, aisle: 549 }, busColor: '#0f766e',
     routeName: 'Indore to Bhopal via Dewas & Sehore',
     points: route([
@@ -208,7 +208,7 @@ const CATALOG = [
     departures: ['06:00', '10:00', '14:00', '18:00'], returnDepartures: ['07:00', '11:00', '15:00', '19:00'],
   },
   {
-    serviceNumber: 'ZB-IND-UJN-01', operatorName: 'PALKI Bus Rapid', busName: 'Indore - Ujjain Mahakal Express',
+    serviceNumber: 'ZB-IND-UJN-01', operatorName: 'InstaaWheels Bus Rapid', busName: 'Indore - Ujjain Mahakal Express',
     registrationNumber: 'MP13ZB1003', coach: 'nonAcSeater', fares: { window: 130, aisle: 120 }, busColor: '#b45309',
     routeName: 'Indore to Ujjain via Sanwer',
     points: route([
@@ -218,7 +218,7 @@ const CATALOG = [
     returnDepartures: ['07:00', '09:00', '11:00', '13:00', '15:00', '17:00', '19:00', '21:00'],
   },
   {
-    serviceNumber: 'ZB-IND-BOM-01', operatorName: 'PALKI Bus Volvo', busName: 'Indore - Mumbai Volvo Sleeper',
+    serviceNumber: 'ZB-IND-BOM-01', operatorName: 'InstaaWheels Bus Volvo', busName: 'Indore - Mumbai Volvo Sleeper',
     registrationNumber: 'MP09ZB1004', coach: 'volvoSleeper', fares: { sleeper: 1599 }, busColor: '#1e3a8a',
     routeName: 'Indore to Mumbai via Dhule & Nashik',
     points: route([
@@ -228,7 +228,7 @@ const CATALOG = [
     departures: ['19:30', '21:00'], returnDepartures: ['18:30', '20:30'],
   },
   {
-    serviceNumber: 'ZB-IND-AMD-01', operatorName: 'PALKI Bus Express', busName: 'Indore - Ahmedabad Non-AC Sleeper',
+    serviceNumber: 'ZB-IND-AMD-01', operatorName: 'InstaaWheels Bus Express', busName: 'Indore - Ahmedabad Non-AC Sleeper',
     registrationNumber: 'MP09ZB1005', coach: 'nonAcSleeper', fares: { sleeper: 749 }, busColor: '#7c2d12',
     routeName: 'Indore to Ahmedabad via Dhar & Dahod',
     points: route([

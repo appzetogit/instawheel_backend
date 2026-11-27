@@ -23,7 +23,7 @@ const Services = ({ openBookingModal }) => {
   // feature bullets) for whichever ones have been written up, matched on name.
   // A module with no CMS entry still renders, using its own icon and blurb.
   const normalise = (value) =>
-    String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '').replace(/^palki/, '');
+    String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '').replace(/^(instaawheels|palki)/, '');
 
   const cmsItems = servicesPage.items || [];
   // Prefix matching, not equality: the module is "InstaaWheels City Ride" while the

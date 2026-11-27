@@ -8,8 +8,8 @@
  * preloader's own hard timeout — so the gate always opens.
  */
 
-const KEY = 'palki:intro-played';
-const EVENT = 'palki:intro-done';
+const KEY = 'instaawheels:intro-played';
+const EVENT = 'instaawheels:intro-done';
 
 let done = false;
 try {

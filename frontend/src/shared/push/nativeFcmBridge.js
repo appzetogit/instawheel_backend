@@ -5,6 +5,8 @@ const PENDING_NATIVE_FCM_KEY = 'pendingNativeFcmRegistration';
 const LAST_NATIVE_FCM_KEY = 'lastNativeFcmRegistration';
 const LAST_NATIVE_FCM_DEBUG_KEY = 'lastNativeFcmDebugState';
 const NATIVE_FCM_GLOBAL_KEYS = [
+  '__instaawheelsNativeFcmToken',
+  '__InstaaWheelsNativeFcmToken',
   '__nativeFcmToken',
   '__Appzeto 24NativeFcmToken',
   '__fcmToken',

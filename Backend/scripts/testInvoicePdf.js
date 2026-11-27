@@ -9,7 +9,7 @@ import { renderInvoicePdf } from '../src/modules/taxi/services/invoiceService.js
 const model = {
   invoiceDate: '24 August 2026',
   company: {
-    name: 'PALKI',
+    name: 'InstaaWheels',
     tagline: 'Reliable rides, simple journeys',
     address: 'Sample Office, Sample Road, Sample City - 000000',
     phone: '9000000000',

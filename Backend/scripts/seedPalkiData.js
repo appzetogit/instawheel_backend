@@ -94,7 +94,7 @@ const run = async () => {
 
   // 1) logo / branding
   await AdminBusinessSetting.updateMany({}, {
-    $set: { 'general.logo': '/palki-logo.png', 'general.favicon': '/palki-icon-32.png', 'general.app_name': 'PALKI',
+    $set: { 'general.logo': '/instaawheels-logo.png', 'general.favicon': '/instaawheels-icon-32.png', 'general.app_name': 'InstaaWheels',
       'general.default_lat': String(INDORE.lat), 'general.default_lng': String(INDORE.lng) },
   });
 
@@ -239,7 +239,7 @@ const run = async () => {
 
   const from = new Date(); const to = new Date(Date.now() + 365 * 864e5);
   for (const place of [INDORE, UP]) {
-    for (const [code, pct, max, min] of [['WELCOME50', 50, 75, 100], ['PALKI20', 20, 60, 150], ['WEEKEND15', 15, 50, 120]]) {
+    for (const [code, pct, max, min] of [['WELCOME50', 50, 75, 100], ['INSTAA20', 20, 60, 150], ['WEEKEND15', 15, 50, 120]]) {
       await upsert(PromoCode, { code: `${code}${place === UP ? 'UP' : 'IN'}` }, {
         code: `${code}${place === UP ? 'UP' : 'IN'}`, service_location_id: locs[place.name]._id, service_location_name: place.name,
         service_location_ids: [locs[place.name]._id], service_location_names: [place.name], transport_type: 'taxi',

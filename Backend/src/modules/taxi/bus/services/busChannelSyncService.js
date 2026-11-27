@@ -127,7 +127,7 @@ const reconcileTripDate = async ({ channel, connector, mapping, busService, trav
           travelDate,
           seatIds: [seatId],
           externalRef: booking.externalRef,
-          lastError: `Seat ${seatId} is sold on PALKI Bus and also on ${channel.name}`,
+          lastError: `Seat ${seatId} is sold on InstaaWheels Bus and also on ${channel.name}`,
         });
       } else {
         throw error;

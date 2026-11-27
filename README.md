@@ -1,11 +1,11 @@
-# PALKI
+# InstaaWheels
 
-Taxi platform plus the PALKI marketing site, in one repo.
+Taxi platform plus the InstaaWheels marketing site, in one repo.
 
 ```
 Backend/                    Express + MongoDB + Socket.IO API (also serves the CMS settings)
 frontend/                   React 19 + Vite + Tailwind 4 single-page app
-  src/modules/landing/      the PALKI marketing site
+  src/modules/landing/      the InstaaWheels marketing site
   src/modules/{user,driver,admin,shared}/   the taxi product
 ```
 

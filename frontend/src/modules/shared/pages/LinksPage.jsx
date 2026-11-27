@@ -59,7 +59,7 @@ const LinksPage = () => {
       <nav className="links-nav">
         <div className="nav-container">
           <a href="/" className="nav-logo">
-            <span className="logo-palki">InstaaWheels</span>
+            <span className="logo-instaawheels">InstaaWheels</span>
           </a>
           <a href="/" className="back-home">Back to Home</a>
         </div>

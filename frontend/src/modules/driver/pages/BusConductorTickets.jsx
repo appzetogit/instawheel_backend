@@ -11,7 +11,9 @@ const todayKey = () => new Date().toLocaleDateString('en-CA');
 /// typed in works too.
 const pnrFromScan = (text) => {
   const value = String(text || '').trim();
-  return value.startsWith('PALKIBUS|') ? value.split('|')[1] : value;
+  if (value.startsWith('INSTAAWHEELS_BUS|')) return value.split('|')[1];
+  if (value.startsWith('PALKIBUS|')) return value.split('|')[1];
+  return value;
 };
 
 const QrScanner = ({ onResult, onClose }) => {

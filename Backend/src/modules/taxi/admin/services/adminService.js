@@ -3820,7 +3820,7 @@ export const forgotPassword = async (email) => {
   // Send real email
   await sendEmail({
     to: email,
-    subject: `Password Reset OTP for ${process.env.APP_NAME || 'PALKI'}`,
+    subject: `Password Reset OTP for ${process.env.APP_NAME || 'InstaaWheels'}`,
     text: `Your OTP for password reset is: ${otp}. It will expire in 10 minutes.`,
     html: `
       <div style="font-family: sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px; max-width: 500px;">
@@ -3832,7 +3832,7 @@ export const forgotPassword = async (email) => {
         </div>
         <p>This OTP is valid for 10 minutes. If you did not request this, please ignore this email.</p>
         <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
-        <p style="font-size: 12px; color: #666;">Regards,<br>Team ${process.env.APP_NAME || 'PALKI'}</p>
+        <p style="font-size: 12px; color: #666;">Regards,<br>Team ${process.env.APP_NAME || 'InstaaWheels'}</p>
       </div>
     `,
   });
@@ -13255,7 +13255,7 @@ export const getAdminEarningDetails = async (query = {}) => {
     }
     case 'commission':
     default:
-      return rideResult('Total commission', 'Commission PALKI earned on each completed trip.', rides, 'Commission', money(summary.adminCommission));
+      return rideResult('Total commission', 'Commission InstaaWheels earned on each completed trip.', rides, 'Commission', money(summary.adminCommission));
   }
 };
 

@@ -45,11 +45,11 @@ const VEHICLE_PRICES = {
   'ZI Auto': { base_price: 59, price_per_distance: 18, waiting_charge: 2 },
   'ZI Auto Fastest': { base_price: 79, price_per_distance: 18, waiting_charge: 2 },
   'ZI Auto + (Pet)': { base_price: 89, price_per_distance: 18, waiting_charge: 2 },
-  'PALKI AC': { base_price: 120, price_per_distance: 24, waiting_charge: 3 },
-  'PALKI Non-AC': { base_price: 96, price_per_distance: 20, waiting_charge: 3 },
-  'PALKI XL': { base_price: 165, price_per_distance: 24, waiting_charge: 5 },
+  'InstaaWheels AC': { base_price: 120, price_per_distance: 24, waiting_charge: 3 },
+  'InstaaWheels Non-AC': { base_price: 96, price_per_distance: 20, waiting_charge: 3 },
+  'InstaaWheels XL': { base_price: 165, price_per_distance: 24, waiting_charge: 5 },
   'ZI Airport XL': { base_price: 165, price_per_distance: 24, waiting_charge: 5 },
-  'PALKI Premium': { base_price: 140, price_per_distance: 24, waiting_charge: 5 },
+  'InstaaWheels Premium': { base_price: 140, price_per_distance: 24, waiting_charge: 5 },
 };
 
 const NEW_VEHICLE_NAME = 'ZI Auto + (Pet)';

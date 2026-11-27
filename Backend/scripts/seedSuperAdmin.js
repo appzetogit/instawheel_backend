@@ -25,7 +25,7 @@ const MONGO_URI = process.env.MONGODB_URI;
 const MONGO_DB = process.env.MONGODB_DB_NAME || 'appzeto_taxi';
 const ADMIN_EMAIL = String(process.env.ADMIN_EMAIL || '').trim().toLowerCase();
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || '';
-const ADMIN_NAME = process.env.ADMIN_NAME || 'PALKI Admin';
+const ADMIN_NAME = process.env.ADMIN_NAME || 'InstaaWheels Admin';
 
 if (!MONGO_URI) {
   console.error('MONGODB_URI is not set');

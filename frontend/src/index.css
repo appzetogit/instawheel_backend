@@ -938,6 +938,7 @@ html, body, #root {
 .explore-section,
 .promo-section,
 .go-places-section,
+.go-instaawheels-section,
 .go-palki-section {
   width: 100% !important;
   max-width: 100% !important;
@@ -947,6 +948,7 @@ html, body, #root {
 
 .user-search-bar,
 .promo-carousel,
+.go-instaawheels-banner,
 .go-palki-banner {
   width: 100% !important;
   max-width: 100% !important;
@@ -965,6 +967,7 @@ html, body, #root {
   box-sizing: border-box !important;
 }
 
+.go-instaawheels-banner,
 .go-palki-banner {
   position: relative !important;
   text-align: center !important;
@@ -973,6 +976,8 @@ html, body, #root {
   justify-content: center !important;
 }
 
+.go-instaawheels-banner img,
+.go-instaawheels-banner video,
 .go-palki-banner img,
 .go-palki-banner video {
   width: 100% !important;
@@ -980,6 +985,7 @@ html, body, #root {
   object-fit: cover !important;
 }
 
+.go-instaawheels-content,
 .go-palki-content {
   position: absolute !important;
   inset: 0 !important;

@@ -1,16 +1,16 @@
 export const createDefaultBusinessSettings = () => ({
   scope: 'default',
   general: {
-    app_name: 'PALKI - Your Taxi App',
+    app_name: 'InstaaWheels - Your Taxi App',
     contact_phone_1: '0000000000',
     contact_phone_2: '0000000000',
     contact_booking_number: '9999999999',
-    footer_1: '2026 © PALKI. Bhaarat Apna Private Limited.',
-    footer_2: 'PALKI',
+    footer_1: '2026 © InstaaWheels. All rights reserved.',
+    footer_2: 'InstaaWheels',
     default_lat: '22.7196',
     default_lng: '75.8577',
-    logo: '',
-    favicon: '',
+    logo: '/instaawheels-logo.png',
+    favicon: '/instaawheels-icon-32.png',
   },
   customization: {
     admin_theme_color: '#405189',
