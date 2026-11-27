@@ -1,7 +1,7 @@
 import { useId } from 'react';
 
 /**
- * PALKI's own vehicle illustrations — side view, facing right, drawn in the
+ * InstaaWheels's own vehicle illustrations — side view, facing right, drawn in the
  * brand palette (orange body, charcoal glass and tyres).
  *
  * Wheels and lights are separate groups so CSS can animate them: add
@@ -199,7 +199,7 @@ const VARIANTS = {
           <rect x="230" y="20" width="26" height="58" rx="3.5" fill={glass(id)} />
           <path fill={glass(id)} d="M264 20L290 20C296 20 299 23 300 28L305 52L264 52Z" />
           <rect x="10" y="56" width="216" height="7" fill="#fff" opacity="0.9" />
-          <text x="34" y="82" fill="#fff" fontSize="14" fontWeight="800" letterSpacing="2">PALKI</text>
+          <text x="34" y="82" fill="#fff" fontSize="14" fontWeight="800" letterSpacing="2">InstaaWheels</text>
           <Light d="M302 68L313 70L313 76L302 75Z" />
           <Tail x="10" y="66" h="10" />
         </g>

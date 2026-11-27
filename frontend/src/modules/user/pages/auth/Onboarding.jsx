@@ -10,7 +10,7 @@ const Onboarding = () => {
   const navigate = useNavigate();
   const { settings } = useSettings();
   const { theme, toggleTheme } = useUserTheme();
-  const appName = settings.general?.app_name || 'PALKI';
+  const appName = settings.general?.app_name || 'InstaaWheels';
   const appLogo = settings.general?.logo || settings.customization?.logo || settings.general?.favicon || '';
 
   useEffect(() => {

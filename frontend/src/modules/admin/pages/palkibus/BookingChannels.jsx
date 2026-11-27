@@ -171,9 +171,9 @@ const ChannelForm = ({ initial, buses, connectorTypes, onClose, onSaved }) => {
 
         <div className="space-y-4 rounded-2xl border border-slate-100 bg-white p-5">
           <div>
-            <p className="text-sm font-black text-slate-900">How bookings reach PALKI Bus</p>
+            <p className="text-sm font-black text-slate-900">How bookings reach InstaaWheels Bus</p>
             <p className="text-xs font-semibold text-slate-500">
-              Use a connector when their system can&apos;t call our API: PALKI Bus then reads their bookings on a timer and locks the same seats here.
+              Use a connector when their system can&apos;t call our API: InstaaWheels Bus then reads their bookings on a timer and locks the same seats here.
             </p>
           </div>
           <select className={inputClass} value={connector.type} onChange={setConn('type')}>
@@ -204,7 +204,7 @@ const ChannelForm = ({ initial, buses, connectorTypes, onClose, onSaved }) => {
 
               <div className="space-y-2">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="text-sm font-black text-slate-900">Their trips ↔ PALKI Bus runs</p>
+                  <p className="text-sm font-black text-slate-900">Their trips ↔ InstaaWheels Bus runs</p>
                   <button
                     type="button"
                     onClick={() => setMappings((current) => [...current, { busServiceId: '', scheduleId: '', externalTripId: '', seatMapText: '' }])}
@@ -220,7 +220,7 @@ const ChannelForm = ({ initial, buses, connectorTypes, onClose, onSaved }) => {
                     <div key={mapping.id || index} className="space-y-2 rounded-xl border border-slate-100 bg-slate-50 p-3">
                       <div className="grid gap-2 sm:grid-cols-[1.6fr_1fr_1fr_auto]">
                         <select className={inputClass} value={mapping.busServiceId} onChange={(e) => setMapping(index, { busServiceId: e.target.value, scheduleId: '' })} required>
-                          <option value="">PALKI Bus bus</option>
+                          <option value="">InstaaWheels Bus bus</option>
                           {buses.map((item) => <option key={item.id} value={item.id}>{item.busName} · {item.route?.originCity} → {item.route?.destinationCity}</option>)}
                         </select>
                         <select className={inputClass} value={mapping.scheduleId} onChange={(e) => setMapping(index, { scheduleId: e.target.value })} required>
@@ -330,7 +330,7 @@ const BookingChannels = () => {
   const [editing, setEditing] = useState(null);
   const [logFor, setLogFor] = useState(null);
   const [secrets, setSecrets] = useState(null);
-  const [connectorTypes, setConnectorTypes] = useState([{ type: 'push_api', label: 'They call the PALKI Bus channel API' }]);
+  const [connectorTypes, setConnectorTypes] = useState([{ type: 'push_api', label: 'They call the InstaaWheels Bus channel API' }]);
   const [syncingId, setSyncingId] = useState('');
 
   useEffect(() => {
@@ -386,10 +386,10 @@ const BookingChannels = () => {
       <div className="mx-auto max-w-6xl space-y-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-600">PALKI Bus · Inventory sync</p>
+            <p className="text-[10px] font-black uppercase tracking-[0.28em] text-blue-600">InstaaWheels Bus · Inventory sync</p>
             <h1 className="mt-2 text-3xl font-black tracking-tight text-slate-900">Booking Channels</h1>
             <p className="mt-2 max-w-3xl text-sm font-medium text-slate-500">
-              Other platforms and operator systems that sell the same seats. PALKI Bus holds the master seat map: channels push their sales
+              Other platforms and operator systems that sell the same seats. InstaaWheels Bus holds the master seat map: channels push their sales
               in through the API (a seat can only be sold once, whoever sells it), and receive every change on their webhook.
             </p>
           </div>

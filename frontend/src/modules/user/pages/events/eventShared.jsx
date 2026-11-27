@@ -22,7 +22,7 @@ export const eventApi = {
 };
 
 export const STATUS = {
-  requested: ['Waiting for PALKI', 'bg-amber-50 text-amber-700'],
+  requested: ['Waiting for InstaaWheels', 'bg-amber-50 text-amber-700'],
   assigned: ['Pay advance to confirm', 'bg-indigo-50 text-indigo-700'],
   confirmed: ['Confirmed', 'bg-emerald-50 text-emerald-700'],
   ongoing: ['Event on', 'bg-sky-50 text-sky-700'],

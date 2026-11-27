@@ -59,7 +59,7 @@ const PoolingFareCard = ({ quote, loading = false, error = '' }) => {
               ? ` ${quote.coRiders} other rider${quote.coRiders > 1 ? 's are' : ' is'} already on your stretch, so you would pay about ${rupees(quote.currentTotal)} right now.`
               : ' Nobody else is on your stretch yet.'}
           </p>
-          <p className="flex gap-2"><Wallet size={14} className="mt-0.5 shrink-0" /> After the trip, whatever you paid above your share is added back to your PALKI wallet.</p>
+          <p className="flex gap-2"><Wallet size={14} className="mt-0.5 shrink-0" /> After the trip, whatever you paid above your share is added back to your InstaaWheels wallet.</p>
           {quote.freeCancelHours ? <p className="pl-6">Free cancellation up to {quote.freeCancelHours} hours before departure.</p> : null}
         </div>
       ) : null}

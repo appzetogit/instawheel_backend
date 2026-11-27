@@ -5,7 +5,7 @@ import { adminService } from '../../services/adminService';
 import { uploadService } from '../../../../shared/services/uploadService';
 
 /**
- * Editor for the public marketing site (palkicabs.com).
+ * Editor for the public marketing site (instaawheels.com).
  *
  * Mirrors the backend's section whitelist in landingContentService.js — adding a
  * section means updating the model, that whitelist, defaultLandingContent.js and
@@ -42,7 +42,7 @@ const SECTIONS = [
   {
     key: 'valueProps',
     title: 'Why Choose Us',
-    help: 'The "Why Choose PALKI?" cards.',
+    help: 'The "Why Choose InstaaWheels?" cards.',
     itemLabel: 'point',
     fields: [
       { name: 'title', label: 'Title', placeholder: 'Verified & Trained Drivers' },
@@ -99,16 +99,16 @@ const CONTACT_FIELDS = [
 ];
 
 const ABOUT_FIELDS = [
-  { name: 'tag', label: 'Page tag', placeholder: 'About PALKI' },
+  { name: 'tag', label: 'Page tag', placeholder: 'About InstaaWheels' },
   { name: 'title', label: 'Page title', placeholder: 'Redefining Premium Cab Services...' },
   { name: 'subtitle', label: 'Page subtitle', wide: true },
   { name: 'foundersTag', label: 'Founders tag', placeholder: 'Leadership' },
   { name: 'foundersHeading', label: 'Founders heading', placeholder: 'Meet the Founders' },
-  { name: 'pillarsHeading', label: 'Pillars heading', placeholder: 'The Pillars of PALKI', wide: true },
+  { name: 'pillarsHeading', label: 'Pillars heading', placeholder: 'The Pillars of InstaaWheels', wide: true },
 ];
 
 const SERVICES_PAGE_FIELDS = [
-  { name: 'tag', label: 'Page tag', placeholder: 'PALKI Offerings' },
+  { name: 'tag', label: 'Page tag', placeholder: 'InstaaWheels Offerings' },
   { name: 'title', label: 'Page title', placeholder: 'Comprehensive Mobility Services' },
   { name: 'subtitle', label: 'Page subtitle', wide: true },
   { name: 'ctaLabel', label: 'Card button label', placeholder: 'Book This Service' },
@@ -116,26 +116,26 @@ const SERVICES_PAGE_FIELDS = [
 
 const HERO_FIELDS = [
   { name: 'titleLine1', label: 'Headline line 1', placeholder: 'Your Ride.' },
-  { name: 'titleLine2', label: 'Headline line 2', placeholder: 'Your ride. PALKI.', help: 'Shown in the accent colour.' },
+  { name: 'titleLine2', label: 'Headline line 2', placeholder: 'Your ride. InstaaWheels.', help: 'Shown in the accent colour.' },
   { name: 'subtitle', label: 'Subtitle', placeholder: 'Premium rides, verified drivers...', wide: true },
   { name: 'primaryCta', label: 'Primary button', placeholder: 'Book a Ride' },
   { name: 'secondaryCta', label: 'Secondary button', placeholder: 'Download App' },
 ];
 
 const SEO_FIELDS = [
-  { name: 'title', label: 'Browser tab title', placeholder: 'PALKI - Your Taxi App', wide: true },
-  { name: 'description', label: 'Search description', placeholder: 'PALKI - city, outstation and airport cabs...', wide: true },
+  { name: 'title', label: 'Browser tab title', placeholder: 'InstaaWheels - Your Taxi App', wide: true },
+  { name: 'description', label: 'Search description', placeholder: 'InstaaWheels - city, outstation and airport cabs...', wide: true },
 ];
 
 const FOOTER_FIELDS = [
-  { name: 'description', label: 'About blurb', placeholder: 'PALKI is a premium cab booking platform...', wide: true },
+  { name: 'description', label: 'About blurb', placeholder: 'InstaaWheels is a premium cab booking platform...', wide: true },
   { name: 'servicesHeading', label: 'Services column heading', placeholder: 'Cab Services' },
-  { name: 'copyright', label: 'Copyright line', placeholder: '© 2026 Bhaarat Apna Private Limited. All Rights Reserved.', wide: true },
+  { name: 'copyright', label: 'Copyright line', placeholder: '© 2026 InstaaWheels Private Limited. All Rights Reserved.', wide: true },
 ];
 
 const BRAND_FIELDS = [
   { name: 'logo', label: 'Logo', type: 'image', wide: true, help: 'Shown in the header, footer and intro screen. Leave empty to use the logo from General Settings.' },
-  { name: 'wordmarkPrimary', label: 'Wordmark (first part)', placeholder: 'PALKI' },
+  { name: 'wordmarkPrimary', label: 'Wordmark (first part)', placeholder: 'InstaaWheels' },
   { name: 'wordmarkSecondary', label: 'Wordmark (second part)', placeholder: '(optional)' },
   { name: 'tagline', label: 'Tagline', placeholder: 'Your Taxi App', wide: true },
   { name: 'appBlurb', label: 'App blurb', placeholder: 'Book rides in seconds...', wide: true },
@@ -541,7 +541,7 @@ export default function LandingContent() {
         <div>
           <h1 className="text-xl font-bold text-gray-900">Website Content</h1>
           <p className="text-sm text-gray-500 mt-1">
-            Controls the public site at palkicabs.com. Changes appear within about a minute.
+            Controls the public site at instaawheels.com. Changes appear within about a minute.
           </p>
         </div>
         <button

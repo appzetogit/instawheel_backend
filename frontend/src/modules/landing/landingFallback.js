@@ -32,7 +32,7 @@ export const LANDING_FALLBACK = {
 
   partners: [],
 
-  // Empty until the admin sets the cities PALKI operates in; sections that
+  // Empty until the admin sets the cities InstaaWheels operates in; sections that
   // list cities stay hidden while this is empty.
   launchCities: [],
 
@@ -56,10 +56,10 @@ export const LANDING_FALLBACK = {
     // Empty: the site uses the logo from General Settings. Set this only to
     // give the website a different logo from the rest of the product.
     logo: '',
-    wordmarkPrimary: 'PALKI',
+    wordmarkPrimary: 'InstaaWheels',
     wordmarkSecondary: '',
     tagline: 'Your Taxi App',
-    appBlurb: 'Book rides in seconds, track drivers live, and manage invoices with the PALKI app.',
+    appBlurb: 'Book rides in seconds, track drivers live, and manage invoices with the InstaaWheels app.',
     playStoreUrl: '',
     appStoreUrl: '',
     playStoreQr: '',
@@ -68,7 +68,7 @@ export const LANDING_FALLBACK = {
 
   hero: {
     titleLine1: 'Your city.',
-    titleLine2: 'Your ride. PALKI.',
+    titleLine2: 'Your ride. InstaaWheels.',
     subtitle: 'Bikes, autos, cabs and parcels — booked in seconds, tracked live, with upfront fares and verified drivers.',
     primaryCta: 'Book a Ride',
     secondaryCta: 'Download App',
@@ -82,7 +82,7 @@ export const LANDING_FALLBACK = {
 
   footer: {
     description:
-      'PALKI is your taxi app for safe, upfront-priced rides with verified drivers — city rides, outstation trips and parcels.',
+      'InstaaWheels is your taxi app for safe, upfront-priced rides with verified drivers — city rides, outstation trips and parcels.',
     servicesHeading: 'Cab Services',
     cabServices: [
       { label: 'City Ride (Local Cabs)' },
@@ -96,17 +96,17 @@ export const LANDING_FALLBACK = {
       { label: 'Verified Drivers' },
       { label: '24x7 Live SOS' },
     ],
-    copyright: '© 2026 Bhaarat Apna Private Limited. All Rights Reserved.',
+    copyright: '© 2026 InstaaWheels Private Limited. All Rights Reserved.',
   },
 
   seo: {
-    title: 'PALKI - Your Taxi App',
+    title: 'InstaaWheels - Your Taxi App',
     description:
-      'PALKI - book bikes, autos, cabs and parcels with upfront fares, live tracking and verified drivers.',
+      'InstaaWheels - book bikes, autos, cabs and parcels with upfront fares, live tracking and verified drivers.',
   },
 
   about: {
-    tag: 'About PALKI',
+    tag: 'About InstaaWheels',
     title: 'A Taxi App Built on Trust',
     subtitle:
       'Safe, reliable and fairly priced rides — city, outstation and airport — from a team that puts riders and drivers first.',
@@ -115,7 +115,7 @@ export const LANDING_FALLBACK = {
     foundersTag: 'Leadership',
     foundersHeading: 'Meet the Founders',
     founders: [],
-    pillarsHeading: 'The Pillars of PALKI',
+    pillarsHeading: 'The Pillars of InstaaWheels',
     pillars: [
       { icon: 'ShieldCheck', title: 'Safety First', desc: 'All vehicles are equipped with real-time GPS tracking, dual dash cams, and SOS emergency buttons monitored 24x7 by our command center.' },
       { icon: 'Award', title: 'Transparent Pricing', desc: 'Zero surge pricing surprises. What you see during booking is exact fare you pay—inclusive of fuel, toll, and taxes.' },
@@ -125,7 +125,7 @@ export const LANDING_FALLBACK = {
   },
 
   faqs: [
-    { q: 'Does PALKI apply surge pricing?', a: 'No. The fare shown at booking is the fare you pay, inclusive of fuel, toll and taxes.' },
+    { q: 'Does InstaaWheels apply surge pricing?', a: 'No. The fare shown at booking is the fare you pay, inclusive of fuel, toll and taxes.' },
     { q: 'What is the cancellation policy?', a: 'Cancellations made within the free window carry no charge. After that, the applicable cancellation fee is shown before you confirm.' },
     { q: 'How do airport pickups work?', a: 'Your driver tracks the flight and waits in the designated pickup area. Free waiting time applies from the time of landing.' },
     { q: 'Which payment methods are accepted?', a: 'Cash to driver, Google Pay, PhonePe, Paytm, credit and debit cards, and net banking.' },
@@ -133,7 +133,7 @@ export const LANDING_FALLBACK = {
   ],
 
   servicesPage: {
-    tag: 'PALKI Offerings',
+    tag: 'InstaaWheels Offerings',
     title: 'Comprehensive Mobility Services',
     subtitle:
       'Whether for daily city commute, airport runs, or outstation family road trips, we have the ideal vehicle and service for you.',
@@ -178,11 +178,11 @@ export const LANDING_FALLBACK = {
   },
 
   corporatePage: {
-    tag: 'PALKI Business',
+    tag: 'InstaaWheels Business',
     title: 'Enterprise Mobility & Corporate Cab Solutions',
     subtitle:
       'Streamline business travel, airport transfers, and employee commuting with India\u2019s most dependable corporate cab network.',
-    benefitsHeading: 'Why Businesses Choose PALKI',
+    benefitsHeading: 'Why Businesses Choose InstaaWheels',
     formTitle: 'Request a Corporate Demo',
     formSubtitle: 'Get custom pricing rates for your company in 2 hours.',
     benefits: [
@@ -195,8 +195,8 @@ export const LANDING_FALLBACK = {
 
   partnerPage: {
     tag: 'Attach Cabs & Earn',
-    title: 'Partner With PALKI Fleet Network',
-    perksHeading: 'Why Fleet Owners Trust PALKI',
+    title: 'Partner With InstaaWheels Fleet Network',
+    perksHeading: 'Why Fleet Owners Trust InstaaWheels',
     earningsHeading: 'Est. Monthly Earnings Calculator',
     formTitle: 'Attach Your Cab Today',
     formSubtitle: 'Fill the form below to receive callback within 30 minutes.',
@@ -214,15 +214,15 @@ export const LANDING_FALLBACK = {
   },
 
   driverPage: {
-    tag: 'Join PALKI Captains',
+    tag: 'Join InstaaWheels Captains',
     title: 'Drive With Dignity, Security & Higher Income',
-    perksHeading: 'Captain Benefits at PALKI',
+    perksHeading: 'Captain Benefits at InstaaWheels',
     docsHeading: 'Documents Required for Verification',
     formTitle: 'Driver Onboarding Form',
-    formSubtitle: 'Start driving with PALKI within 24 hours.',
+    formSubtitle: 'Start driving with InstaaWheels within 24 hours.',
     perks: [
       { icon: 'Clock', title: 'Flexible Shift Timings', desc: 'Choose your own operating hours. Drive outstation long trips or local airport runs whenever you wish.' },
-      { icon: 'Shield', title: '\u20b95 Lakh Insurance Cover', desc: 'Free accidental insurance and medical assistance for every active PALKI driver partner.' },
+      { icon: 'Shield', title: '\u20b95 Lakh Insurance Cover', desc: 'Free accidental insurance and medical assistance for every active InstaaWheels driver partner.' },
       { icon: 'Award', title: 'Zero Dry-Run Guarantee', desc: 'Outstation trips are optimized with return bookings to save fuel and maximize profit per trip.' },
     ],
     requiredDocs: [
@@ -235,7 +235,7 @@ export const LANDING_FALLBACK = {
   },
 
   advertisePage: {
-    tag: 'Advertise with PALKI',
+    tag: 'Advertise with InstaaWheels',
     title: 'Reach Riders Where Their Attention Already Is',
     inventoryTag: 'Inventory',
     inventoryHeading: 'Where Your Brand Can Appear',
@@ -245,11 +245,11 @@ export const LANDING_FALLBACK = {
     formTitle: 'Advertising Enquiry',
     placements: [
       { icon: 'Smartphone', title: 'Mobile App', desc: 'In-app placements across the rider journey \u2014 from app open to ride completion.', formats: ['Splash / app-open ad', 'In-feed native card', 'Ride-summary banner'] },
-      { icon: 'Globe', title: 'Website', desc: 'Placements on palkicabs.com pages, seen by riders comparing fares and booking online.', formats: ['Leaderboard banner', 'Sidebar tile', 'Sponsored service block'] },
+      { icon: 'Globe', title: 'Website', desc: 'Placements on instaawheels.com pages, seen by riders comparing fares and booking online.', formats: ['Leaderboard banner', 'Sidebar tile', 'Sponsored service block'] },
       { icon: 'Car', title: 'Driver App', desc: 'Reach our driver-partner network \u2014 ideal for fuel, tyres, insurance, EMI and F&B brands.', formats: ['Driver home banner', 'Duty start/end card', 'Partner offer wall'] },
       { icon: 'Image', title: 'Home Screen Banners', desc: 'The highest-visibility slot on the app \u2014 every rider sees it before booking.', formats: ['Hero carousel slide', 'Static top banner', 'City-targeted banner'] },
       { icon: 'CheckCircle2', title: 'Booking Confirmation Screen', desc: 'Shown at peak attention, right after a booking is confirmed and while the rider waits.', formats: ['Confirmation card ad', 'While you wait tile', 'Nearby-brand suggestion'] },
-      { icon: 'Gift', title: 'Offers & Promotions', desc: 'Co-branded coupons and cashback that ride along with a PALKI trip.', formats: ['Coupon in offers tab', 'Co-branded promo code', 'Ride-and-win campaign'] },
+      { icon: 'Gift', title: 'Offers & Promotions', desc: 'Co-branded coupons and cashback that ride along with a InstaaWheels trip.', formats: ['Coupon in offers tab', 'Co-branded promo code', 'Ride-and-win campaign'] },
       { icon: 'BellRing', title: 'Push Notifications', desc: 'Opt-in, frequency-capped pushes segmented by city, ride type and rider behaviour.', formats: ['Sponsored push', 'Geo-fenced alert', 'Weekend campaign blast'] },
     ],
     industries: [

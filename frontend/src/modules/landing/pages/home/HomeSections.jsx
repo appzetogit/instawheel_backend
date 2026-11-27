@@ -84,13 +84,13 @@ export function Hero({ hero, onBook }) {
       <div className="ph-container ph-hero-grid">
         <div className="ph-hero-copy">
           <motion.span className="ph-pill" {...rise(0.05)}>
-            <img src="/palki-mark.png" alt="" width="18" height="18" />
-            PALKI · Your Taxi App
+            <img src="/instaawheels-mark.png" alt="" width="18" height="18" />
+            InstaaWheels · Your Taxi App
           </motion.span>
 
           <motion.h1 className="ph-h1" {...rise(0.12)}>
             <span>{hero?.titleLine1 || 'Your city.'}</span>
-            <span className="ph-accent">{hero?.titleLine2 || 'Your ride. PALKI.'}</span>
+            <span className="ph-accent">{hero?.titleLine2 || 'Your ride. InstaaWheels.'}</span>
           </motion.h1>
 
           <motion.p className="ph-lead" {...rise(0.22)}>
@@ -150,7 +150,7 @@ const RIDES = [
 ];
 
 export function RideTypes({ vehicles, source, onBook }) {
-  // Real catalog when the admin has set one up; otherwise PALKI's standard line-up.
+  // Real catalog when the admin has set one up; otherwise InstaaWheels's standard line-up.
   const list =
     source === 'api' && vehicles.length
       ? vehicles.filter((v) => variantFor(`${v.name} ${v.type}`) !== 'bus').map((v) => ({
@@ -282,7 +282,7 @@ export function WhyPalki({ valueProps }) {
       <div className="ph-container">
         <SectionHead
           light
-          eyebrow="Why PALKI"
+          eyebrow="Why InstaaWheels"
           title="Rides you can count on."
           sub="Every trip is built around three things: your safety, a fair price, and someone to call when you need help."
         />
@@ -353,7 +353,7 @@ export function Services({ items, onBook, onAll }) {
   );
 }
 
-/** Looping traffic: PALKI vehicles crossing two lanes at different speeds. */
+/** Looping traffic: InstaaWheels vehicles crossing two lanes at different speeds. */
 export function TrafficBand() {
   const still = useReducedMotion();
   const lanes = [
@@ -390,7 +390,7 @@ export function DriveBand({ onDriver, onPartner }) {
     <section className="ph-section ph-drive">
       <div className="ph-container ph-drive-grid">
         <Reveal className="ph-drive-card ph-drive-main">
-          <span className="ph-eyebrow">Drive with PALKI</span>
+          <span className="ph-eyebrow">Drive with InstaaWheels</span>
           <h2 className="ph-h2">Your car. Your hours. Your earnings.</h2>
           <p className="ph-sub">
             Sign up, get verified and start taking rides near you. Flexible timings and payouts you can track in the app.
@@ -465,7 +465,7 @@ export function AppBand({ brand, onWeb }) {
       <div className="ph-container ph-app-grid">
         <div className="ph-app-copy">
           <SectionHead
-            eyebrow="The PALKI app"
+            eyebrow="The InstaaWheels app"
             title="Your rides, in your pocket."
             sub={brand?.appBlurb || 'Book in seconds, track your driver live and keep every receipt in one place.'}
           />
@@ -527,7 +527,7 @@ export function Cities({ cities }) {
   return (
     <section className="ph-section ph-cities">
       <div className="ph-container">
-        <SectionHead eyebrow="Where we ride" title="PALKI is live in" center />
+        <SectionHead eyebrow="Where we ride" title="InstaaWheels is live in" center />
         <div className="ph-city-list">
           {cities.map((c, i) => (
             <Reveal key={c.name} delay={i * 0.05} className="ph-city">

@@ -247,7 +247,7 @@ const defaultSettings = {
     { id: '4', title: 'Bike', image: '', route: '/taxi/user/ride/select-location', order: 4, status: 'active' }
   ],
   promos: [
-    { id: '1', title: 'Experience A New Standard With PALKI', subtitle: 'A premier private hire service where luxury and reliability converge.', image: '', route: '/taxi/user/ride/select-location', order: 1, status: 'active' },
+    { id: '1', title: 'Experience A New Standard With InstaaWheels', subtitle: 'A premier private hire service where luxury and reliability converge.', image: '', route: '/taxi/user/ride/select-location', order: 1, status: 'active' },
     { id: '2', title: 'Need to Send Packages? Try Parcel!', subtitle: 'Fast and secure delivery across Indore at affordable prices.', image: '', route: '/taxi/user/parcel/type', order: 2, status: 'active' }
   ],
   goPlaces: [
@@ -256,7 +256,7 @@ const defaultSettings = {
     { id: '3', title: 'Ride to Bus Terminal', image: '', route: '/taxi/user/ride/select-location', order: 3, status: 'active' }
   ],
   footer: {
-    hashtag: '#goPALKI',
+    hashtag: '#goInstaaWheels',
     line1: 'Made for India',
     line2: 'Crafted for riders'
   }
@@ -1447,7 +1447,7 @@ const Home = () => {
       <div className="pt-1">
         <div className="mb-2.5 ml-1">
           <h2 className={`text-[19px] font-[900] tracking-tight leading-none ${isDark ? 'text-white' : 'text-slate-900'}`}>
-            Go Places with PALKI
+            Go Places with InstaaWheels
           </h2>
           <p className={`text-[11px] font-[900] tracking-[0.14em] mt-1.5 ${isDark ? 'text-zinc-500' : 'text-slate-400'}`}>
             Fast bookings to key transit hubs
@@ -1606,7 +1606,7 @@ const Home = () => {
                 textShadow: 'none'
               }}
             >
-              #GOPALKI
+              #GOINSTAAWHEELS
             </motion.h3>
 
             {/* Holiday taxi inline image removed to show background image only */}
@@ -1944,10 +1944,10 @@ const Home = () => {
           <div className="hidden lg:block pt-6">
             <div className="flex flex-col items-start px-2 py-2">
               <div className="text-[48px] font-[900] tracking-[-0.03em] text-[#FFC400] drop-shadow-[0_10px_30px_rgba(255,196,0,0.4)] leading-none uppercase">
-                PALKI
+                InstaaWheels
               </div>
               <div className="mt-2 text-[14px] font-sans italic font-bold tracking-[0.04em] text-slate-800 dark:text-slate-200">
-                #goPALKI
+                #goInstaaWheels
               </div>
               <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
                 Made for India, Crafted for riders.

@@ -3,7 +3,7 @@ import { ArrowLeft, Loader2 } from 'lucide-react';
 import { formatDuration } from './palkibusFormat';
 import './palkibus.css';
 
-// Building blocks shared by every PALKI Bus passenger screen. Colours come from
+// Building blocks shared by every InstaaWheels Bus passenger screen. Colours come from
 // palkibus.css (zb-* classes), so these stay correct in the app's dark and
 // light themes.
 

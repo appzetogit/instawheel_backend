@@ -317,7 +317,7 @@ export const BookingDetailsDrawer = ({ booking, onClose }) => {
             <Line label="Total fare" value={f.totalFare ?? b.fare} bold />
             {(f.commission || f.driverEarnings) ? (
               <div className="mt-3 rounded-lg bg-gray-50 p-3">
-                <Line label="PALKI commission" value={f.commission} />
+                <Line label="InstaaWheels commission" value={f.commission} />
                 <Line label="Driver earnings" value={f.driverEarnings} />
               </div>
             ) : null}

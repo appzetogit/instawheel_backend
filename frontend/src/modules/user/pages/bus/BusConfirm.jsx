@@ -38,9 +38,9 @@ const BusConfirm = () => {
   const total = Number(booking.amount || 0) + Number(booking.foodAmount || 0);
 
   const share = async () => {
-    const text = `PALKI Bus ticket ${pnr}: ${bus.fromCity || fromCity} to ${bus.toCity || toCity}, ${formatDay(booking.travelDate || date)} ${bus.departure || ''}. Seat ${seats.join(', ')}.`;
+    const text = `InstaaWheels Bus ticket ${pnr}: ${bus.fromCity || fromCity} to ${bus.toCity || toCity}, ${formatDay(booking.travelDate || date)} ${bus.departure || ''}. Seat ${seats.join(', ')}.`;
     try {
-      if (navigator.share) await navigator.share({ title: 'PALKI Bus ticket', text });
+      if (navigator.share) await navigator.share({ title: 'InstaaWheels Bus ticket', text });
       else await navigator.clipboard?.writeText(text);
     } catch {
       // Share sheet closed.

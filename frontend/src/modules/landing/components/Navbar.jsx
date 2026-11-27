@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { id: 'home', label: 'Home' },
   { id: 'services', label: 'Services' },
   // Bus hidden from the menu for now; the /palki-bus page still exists.
-  // { id: 'bus', label: 'PALKI Bus' },
+  // { id: 'bus', label: 'InstaaWheels Bus' },
   { id: 'driver', label: 'Drive' },
   { id: 'partner', label: 'Partner' },
   { id: 'corporate', label: 'Business' },
@@ -17,7 +17,7 @@ const NAV_ITEMS = [
   { id: 'contact', label: 'Contact' },
 ];
 
-/** PALKI site header: white glass bar, logo mark + wordmark, orange CTA. */
+/** InstaaWheels site header: white glass bar, logo mark + wordmark, orange CTA. */
 export default function Navbar({ activeTab, setActiveTab, openBookingModal }) {
   const { brand } = useLanding();
   const [open, setOpen] = useState(false);
@@ -43,7 +43,7 @@ export default function Navbar({ activeTab, setActiveTab, openBookingModal }) {
     scrollToTop();
   };
 
-  const wordmark = [brand.wordmarkPrimary, brand.wordmarkSecondary].filter(Boolean).join(' ') || 'PALKI';
+  const wordmark = [brand.wordmarkPrimary, brand.wordmarkSecondary].filter(Boolean).join(' ') || 'InstaaWheels';
 
   return (
     <header className={`pn ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>

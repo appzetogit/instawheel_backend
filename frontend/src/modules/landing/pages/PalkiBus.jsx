@@ -10,7 +10,7 @@ const normalizeCity = (value = '') => String(value).trim().toLowerCase();
 const isEnabledFlag = (value) =>
   ['1', 'true', 'yes', 'on', 'enabled'].includes(String(value ?? '').trim().toLowerCase()) || value === true || value === 1;
 
-// The PALKI Bus banners set in admin under Promotions > Banner Image, the same
+// The InstaaWheels Bus banners set in admin under Promotions > Banner Image, the same
 // list the rider app's bus screen shows.
 const bannerImages = (settings = {}) => {
   const list = settings.busBanners ?? settings.bus_banners;
@@ -21,7 +21,7 @@ const bannerImages = (settings = {}) => {
     .filter(Boolean);
 };
 
-/// The public PALKI Bus page on the website: open to everyone, with the site's own
+/// The public InstaaWheels Bus page on the website: open to everyone, with the site's own
 /// menu. Searching takes the rider into the booking flow, which asks them to log in.
 const PalkiBus = () => {
   const navigate = useNavigate();

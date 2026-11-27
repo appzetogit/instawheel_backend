@@ -23,7 +23,7 @@ const EventBookingDetail = () => {
       const order = await eventApi.payOrder(id);
       const rzp = new window.Razorpay({
         key: order.keyId, amount: order.amount, currency: order.currency || 'INR', order_id: order.orderId,
-        name: 'PALKI Event Booking', description: `${b.code} · ${order.stage === 'advance' ? 'Advance' : 'Balance'}`,
+        name: 'InstaaWheels Event Booking', description: `${b.code} · ${order.stage === 'advance' ? 'Advance' : 'Balance'}`,
         theme: { color: '#0f172a' },
         modal: { ondismiss: () => setBusy(false) },
         handler: async (resp) => {
@@ -65,12 +65,12 @@ const EventBookingDetail = () => {
       </div>
 
       <div className="space-y-4 p-4">
-        {b.status === 'requested' ? <p className="rounded-2xl bg-amber-50 p-4 text-sm font-bold text-amber-800">We got your request. PALKI will assign vehicles and you can then pay the advance to confirm.</p> : null}
+        {b.status === 'requested' ? <p className="rounded-2xl bg-amber-50 p-4 text-sm font-bold text-amber-800">We got your request. InstaaWheels will assign vehicles and you can then pay the advance to confirm.</p> : null}
         {b.status === 'assigned' && due.stage === 'advance' ? <p className="rounded-2xl bg-indigo-50 p-4 text-sm font-bold text-indigo-800">Vehicles are ready for you. Pay {rupees(due.amount)} now to confirm the booking.</p> : null}
         {due.stage === 'extra' ? <p className="rounded-2xl bg-amber-50 p-4 text-sm font-bold text-amber-800">Extra time was used on your event. Please pay the extra charge of {rupees(due.amount)}.</p> : null}
         {b.status === 'ongoing' && !due.stage ? <p className="rounded-2xl bg-sky-50 p-4 text-sm font-bold text-sky-800">Your event is on. Have a great time!</p> : null}
         {b.status === 'confirmed' && due.stage === 'balance' && !due.canPay ? <p className="rounded-2xl bg-emerald-50 p-4 text-sm font-bold text-emerald-800">Confirmed. The balance of {rupees(due.amount)} is payable from {when(due.payFrom)}.</p> : null}
-        {b.status === 'rejected' || b.status === 'cancelled' ? <p className="rounded-2xl bg-rose-50 p-4 text-sm font-bold text-rose-700">{b.cancelReason || (b.status === 'rejected' ? 'PALKI could not arrange vehicles for these dates.' : 'This booking was cancelled.')}{b.refundAmount ? ` Refund: ${rupees(b.refundAmount)}.` : ''}</p> : null}
+        {b.status === 'rejected' || b.status === 'cancelled' ? <p className="rounded-2xl bg-rose-50 p-4 text-sm font-bold text-rose-700">{b.cancelReason || (b.status === 'rejected' ? 'InstaaWheels could not arrange vehicles for these dates.' : 'This booking was cancelled.')}{b.refundAmount ? ` Refund: ${rupees(b.refundAmount)}.` : ''}</p> : null}
 
         <section className="space-y-2 rounded-2xl bg-white p-4 shadow-sm">
           <p className="text-sm font-black text-slate-900">Event</p>

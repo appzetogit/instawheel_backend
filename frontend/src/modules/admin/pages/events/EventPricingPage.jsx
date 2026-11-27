@@ -5,7 +5,7 @@ import { Empty, Field, Modal, Shell, Spinner, Table, act, btnDanger, btnGhost, b
 const NUM = [
   ['extraPerKm', 'Per km beyond the last slab (₹)'], ['returnPercent', 'Return trip % of the way there', '100 = the same price as the way there'],
   ['includedHours', 'Hours included on day 1'], ['extraDayCharge', 'Each extra day (₹)'], ['extraDayIncludedHours', 'Hours included per extra day'],
-  ['extraHourCharge', 'Each extra hour beyond that (₹)'], ['commissionPercent', 'PALKI commission % on driver vehicles', 'PALKI-owned vehicles: PALKI keeps all of it'],
+  ['extraHourCharge', 'Each extra hour beyond that (₹)'], ['commissionPercent', 'InstaaWheels commission % on driver vehicles', 'InstaaWheels-owned vehicles: InstaaWheels keeps all of it'],
 ];
 const BLANK = { slabs: [{ fromKm: 0, toKm: 50, price: '' }], extraPerKm: 0, returnPercent: 100, includedHours: 10, extraDayCharge: 0, extraDayIncludedHours: 10, extraHourCharge: 0, commissionPercent: 15, active: true };
 

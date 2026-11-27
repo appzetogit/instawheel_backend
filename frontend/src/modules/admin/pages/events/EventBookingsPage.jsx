@@ -147,7 +147,7 @@ const Detail = ({ id, onClose, onChanged }) => {
                           <input type="checkbox" disabled={v.busy} checked={on} onChange={() => toggle(cid, String(v._id), item.quantity)} className="mt-0.5" />
                           <span>
                             <b className="text-slate-800">{v.name} · {v.vehicleNumber}</b>
-                            <span className="block text-slate-500">{v.ownerType === 'admin' ? 'PALKI vehicle' : 'Driver-owned'} · {v.driverName || '-'} {v.driverPhone}</span>
+                            <span className="block text-slate-500">{v.ownerType === 'admin' ? 'InstaaWheels vehicle' : 'Driver-owned'} · {v.driverName || '-'} {v.driverPhone}</span>
                             {v.busy ? <span className="font-bold text-rose-500">Busy on these dates</span> : null}
                           </span>
                         </label>
@@ -161,7 +161,7 @@ const Detail = ({ id, onClose, onChanged }) => {
                     <div key={a._id} className="flex flex-wrap items-center justify-between gap-2 text-xs">
                       <span><b className="text-slate-800">{a.vehicleName} · {a.vehicleNumber}</b> · {a.driverName} {a.driverPhone}</span>
                       <span className="flex items-center gap-2">
-                        <span className="text-slate-500">{a.ownerType === 'admin' ? 'PALKI keeps all' : `Driver ${rupees(a.driverShare)} / PALKI ${rupees(a.adminShare)}`}</span>
+                        <span className="text-slate-500">{a.ownerType === 'admin' ? 'InstaaWheels keeps all' : `Driver ${rupees(a.driverShare)} / InstaaWheels ${rupees(a.adminShare)}`}</span>
                         <Badge value={a.driverStatus} />
                       </span>
                       <TripRow a={a} bookingId={id} status={b.status} busy={busy} onSaved={() => { reload(); onChanged(); }} />

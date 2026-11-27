@@ -280,7 +280,7 @@ const BusDetails = () => {
         key: order.keyId,
         amount: order.amount,
         currency: order.currency || 'INR',
-        name: 'PALKI Bus',
+        name: 'InstaaWheels Bus',
         description: `${bus.fromCity || fromCity} to ${bus.toCity || toCity}`,
         order_id: order.orderId,
         prefill: { name, email, contact: phone },

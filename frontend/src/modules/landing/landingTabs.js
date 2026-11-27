@@ -10,7 +10,7 @@ export const LANDING_TABS = [
   { id: 'home', path: '/' },
   { id: 'about', path: '/about' },
   { id: 'services', path: '/services' },
-  // PALKI Bus page removed from the website for now.
+  // InstaaWheels Bus page removed from the website for now.
   // { id: 'bus', path: '/palki-bus' },
   { id: 'corporate', path: '/corporate' },
   { id: 'partner', path: '/partner' },

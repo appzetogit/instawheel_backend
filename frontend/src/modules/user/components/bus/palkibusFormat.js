@@ -1,4 +1,4 @@
-// Formatting and date helpers shared by the PALKI Bus passenger screens.
+// Formatting and date helpers shared by the InstaaWheels Bus passenger screens.
 
 export const formatRupees = (value) =>
   `₹${Number(value || 0).toLocaleString('en-IN', { maximumFractionDigits: 2 })}`;

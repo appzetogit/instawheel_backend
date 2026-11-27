@@ -4,17 +4,17 @@ import { useLanding } from '../landingContentContext';
 import './footer.css';
 
 const COMPANY_LINKS = [
-  { id: 'about', label: 'About PALKI' },
+  { id: 'about', label: 'About InstaaWheels' },
   { id: 'services', label: 'Services' },
   // Bus hidden from the menu for now; the /palki-bus page still exists.
-  // { id: 'bus', label: 'PALKI Bus' },
-  { id: 'corporate', label: 'PALKI for Business' },
+  // { id: 'bus', label: 'InstaaWheels Bus' },
+  { id: 'corporate', label: 'InstaaWheels for Business' },
   { id: 'advertise', label: 'Advertise with us' },
   { id: 'contact', label: 'Contact' },
 ];
 
 const EARN_LINKS = [
-  { id: 'driver', label: 'Drive with PALKI' },
+  { id: 'driver', label: 'Drive with InstaaWheels' },
   { id: 'partner', label: 'Attach your fleet' },
   // { href: '/bus-register', label: 'List your buses' },
 ];
@@ -22,7 +22,7 @@ const EARN_LINKS = [
 const dial = (v = '') => String(v).replace(/[^\d+]/g, '');
 
 /**
- * PALKI footer. Contact rows, cities and store links render only when the admin
+ * InstaaWheels footer. Contact rows, cities and store links render only when the admin
  * has filled them in, so an unset field never shows as an empty label.
  */
 export default function Footer({ setActiveTab }) {
@@ -54,10 +54,10 @@ export default function Footer({ setActiveTab }) {
       <div className="pf-inner">
         <div className="pf-grid">
           <div className="pf-brand">
-            <button type="button" className="pf-logo" onClick={() => go('home')} aria-label="PALKI home">
-              <img src="/palki-mark.png" alt="" />
+            <button type="button" className="pf-logo" onClick={() => go('home')} aria-label="InstaaWheels home">
+              <img src="/instaawheels-mark.png" alt="" />
               <span>
-                <strong>PALKI</strong>
+                <strong>InstaaWheels</strong>
                 <small>{brand.tagline || 'Your Taxi App'}</small>
               </span>
             </button>
@@ -101,7 +101,7 @@ export default function Footer({ setActiveTab }) {
           </div>
 
           <div className="pf-col">
-            <h4>Earn with PALKI</h4>
+            <h4>Earn with InstaaWheels</h4>
             <ul>
               {EARN_LINKS.map((l) => (
                 <li key={l.label}>
@@ -143,7 +143,7 @@ export default function Footer({ setActiveTab }) {
           <div>
             <p>{footer?.copyright}</p>
             <p className="pf-powered">
-              <ShieldCheck size={14} aria-hidden="true" /> Powered by Bhaarat Apna Private Limited
+              <ShieldCheck size={14} aria-hidden="true" /> Powered by InstaaWheels Private Limited
             </p>
           </div>
           <nav className="pf-legal" aria-label="Legal">

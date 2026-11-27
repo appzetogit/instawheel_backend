@@ -21,8 +21,8 @@ const HeaderGreeting = ({ floating = false, hideSearch = false }) => {
 
   const { settings, loading, hasBootstrapSettings } = useSettings();
   const appLogo = settings.general?.logo || settings.customization?.logo || settings.general?.favicon || '';
-  let appName = settings.general?.app_name || 'PALKI';
-  if (appName === 'PALKI') appName = 'PALKI';
+  let appName = settings.general?.app_name || 'InstaaWheels';
+  if (appName === 'InstaaWheels') appName = 'InstaaWheels';
   const [locationLabel, setLocationLabel] = useState(getSavedLocationLabel);
   const showBrandingSkeleton = loading && !hasBootstrapSettings && !appLogo;
 

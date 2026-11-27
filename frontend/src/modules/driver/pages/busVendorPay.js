@@ -34,7 +34,7 @@ export const openRazorpay = async ({ keyId, orderId, amount, currency = 'INR', d
       order_id: orderId,
       amount,
       currency,
-      name: 'PALKI Bus',
+      name: 'InstaaWheels Bus',
       description,
       prefill,
       theme: { color: '#f59e0b' },
@@ -51,8 +51,8 @@ export const TXN_LABEL = {
   top_up: 'Wallet top-up',
   booking_charge: 'Seats booked',
   booking_refund: 'Cancelled seats',
-  admin_credit: 'Added by PALKI',
-  admin_debit: 'Taken by PALKI',
+  admin_credit: 'Added by InstaaWheels',
+  admin_debit: 'Taken by InstaaWheels',
 };
 
 const unwrap = (response) => response?.data?.data ?? response?.data ?? response;

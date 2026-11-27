@@ -8,7 +8,7 @@ import {
 import './palki-home.css';
 
 /**
- * PALKI homepage. Built from scratch around the logo: orange, charcoal, and the
+ * InstaaWheels homepage. Built from scratch around the logo: orange, charcoal, and the
  * winding road with a map pin. All copy that the admin can edit (hero, value
  * props, services, FAQs, cities, store links) still comes from the CMS via
  * useLanding, so the panel keeps control of the words.

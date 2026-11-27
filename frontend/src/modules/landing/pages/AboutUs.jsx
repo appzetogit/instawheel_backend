@@ -61,10 +61,10 @@ const AboutUs = ({ openBookingModal }) => {
           <div className="story-content" data-reveal>
             <h2 className="section-title">Our Story & Mission</h2>
             <p className="body-text">
-              PALKI was founded with a clear mission: to eliminate ride cancellations, surge pricing shocks, and unverified driver risks for every rider.
+              InstaaWheels was founded with a clear mission: to eliminate ride cancellations, surge pricing shocks, and unverified driver risks for every rider.
             </p>
             <p className="body-text">
-              Whether you need an early morning 4 AM airport cab, an executive sedan for corporate travel, or a family SUV for an outstation weekend trip, PALKI ensures guaranteed on-time pickup with professional drivers.
+              Whether you need an early morning 4 AM airport cab, an executive sedan for corporate travel, or a family SUV for an outstation weekend trip, InstaaWheels ensures guaranteed on-time pickup with professional drivers.
             </p>
             
             <div className="mission-list">
@@ -90,7 +90,7 @@ const AboutUs = ({ openBookingModal }) => {
           <div className="story-image-box" data-reveal>
             <img 
               src="https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80" 
-              alt="PALKI Premium Ride"
+              alt="InstaaWheels Premium Ride"
               className="story-img"
             />
             <div className="story-badge">

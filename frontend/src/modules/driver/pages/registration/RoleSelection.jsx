@@ -55,7 +55,7 @@ const ROLE_OPTIONS = [
   /* HIDDEN (bus/rental): {
     id: 'dhaba_owner',
     label: 'Dhaba Owner',
-    description: 'Register your highway dhaba to take food pre-orders from PALKI Bus passengers.',
+    description: 'Register your highway dhaba to take food pre-orders from InstaaWheels Bus passengers.',
     Icon: UtensilsCrossed,
     color: 'text-orange-500',
   }, */

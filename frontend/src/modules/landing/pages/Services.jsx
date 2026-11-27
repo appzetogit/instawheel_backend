@@ -26,7 +26,7 @@ const Services = ({ openBookingModal }) => {
     String(value || '').toLowerCase().replace(/[^a-z0-9]/g, '').replace(/^palki/, '');
 
   const cmsItems = servicesPage.items || [];
-  // Prefix matching, not equality: the module is "PALKI City Ride" while the
+  // Prefix matching, not equality: the module is "InstaaWheels City Ride" while the
   // write-up is titled "City Ride (Local Cabs)", and neither name is going to be
   // edited to suit the other.
   const findCmsMatch = (title) => {
@@ -54,7 +54,7 @@ const Services = ({ openBookingModal }) => {
         };
       })
     : cmsItems.map((item) => ({ ...item, icon: LANDING_ICONS[item.icon] || Car }));
-  // PALKI Bus is not offered on the website for now.
+  // InstaaWheels Bus is not offered on the website for now.
   const visibleServices = allServices.filter((s) => s.id !== 'bus' && !/\bbus\b/i.test(s.title || ''));
 
 

@@ -52,7 +52,7 @@ const Advertise = () => {
           <span className="page-tag">{advertisePage.tag}</span>
           <h1 className="page-title">{advertisePage.title}</h1>
           <p className="page-subtitle">
-            Every PALKI trip is a captive screen moment. Put your brand in front of riders and
+            Every InstaaWheels trip is a captive screen moment. Put your brand in front of riders and
             driver-partners across our app, website and driver network.
           </p>
         </div>
@@ -165,7 +165,7 @@ const Advertise = () => {
                 <h3>Enquiry Received</h3>
                 <p>
                   Thanks, <strong>{contactName || 'there'}</strong>. Our ad sales team will contact{' '}
-                  <strong>{phone}</strong> with the PALKI media kit.
+                  <strong>{phone}</strong> with the InstaaWheels media kit.
                 </p>
               </div>
             ) : (

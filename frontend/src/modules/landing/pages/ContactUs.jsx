@@ -45,7 +45,7 @@ const ContactUs = () => {
             const phone = CONTACT.tollFree || CONTACT.whatsappDisplay;
             const cards = [
               phone && { key: 'call', href: `tel:${phone.replace(/[^\d+]/g, '')}`, Icon: Phone, title: 'Call us', value: phone, note: 'Bookings, live ride help and complaints' },
-              CONTACT.whatsapp && { key: 'wa', href: waLink('Hi PALKI, I need help with a booking.'), external: true, Icon: MessageSquare, title: 'WhatsApp Support', value: CONTACT.whatsappDisplay, note: 'Chat, share live location & get fare' },
+              CONTACT.whatsapp && { key: 'wa', href: waLink('Hi InstaaWheels, I need help with a booking.'), external: true, Icon: MessageSquare, title: 'WhatsApp Support', value: CONTACT.whatsappDisplay, note: 'Chat, share live location & get fare' },
               CONTACT.email && { key: 'mail', href: `mailto:${CONTACT.email}`, Icon: Mail, title: 'Email', value: CONTACT.email, note: 'We reply as soon as we can' },
               CONTACT.addressShort && { key: 'office', href: CONTACT.mapsUrl || undefined, external: true, Icon: MapPin, title: 'Head Office', value: CONTACT.addressShort, note: CONTACT.mapsUrl ? 'Open in Google Maps' : '' },
             ].filter(Boolean);
