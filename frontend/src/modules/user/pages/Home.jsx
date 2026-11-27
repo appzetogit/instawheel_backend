@@ -419,7 +419,7 @@ const RecentLocationsList = ({ routePrefix }) => {
 
   const [recentLocations, setRecentLocations] = useState(() => {
     try {
-      const saved = window.localStorage.getItem('palkicabs:recentLocations');
+      const saved = window.localStorage.getItem('instaawheels:recentLocations');
       if (saved) {
         const parsed = JSON.parse(saved);
         if (Array.isArray(parsed) && parsed.length > 0) {
@@ -455,7 +455,7 @@ const RecentLocationsList = ({ routePrefix }) => {
 
   const getSavedLocationCoords = () => {
     try {
-      const saved = JSON.parse(window.localStorage.getItem('palkicabs:lastLocation') || '{}');
+      const saved = JSON.parse(window.localStorage.getItem('instaawheels:lastLocation') || '{}');
       const lat = Number(saved?.lat);
       const lon = Number(saved?.lon);
       if (Number.isFinite(lat) && Number.isFinite(lon)) {
@@ -468,7 +468,7 @@ const RecentLocationsList = ({ routePrefix }) => {
   useEffect(() => {
     const handleRefresh = () => {
       try {
-        const saved = window.localStorage.getItem('palkicabs:recentLocations');
+        const saved = window.localStorage.getItem('instaawheels:recentLocations');
         if (saved) {
           const parsed = JSON.parse(saved);
           if (Array.isArray(parsed) && parsed.length > 0) {
@@ -478,10 +478,10 @@ const RecentLocationsList = ({ routePrefix }) => {
       } catch (e) { }
     };
     window.addEventListener('storage', handleRefresh);
-    window.addEventListener('palkicabs:recent-locations-updated', handleRefresh);
+    window.addEventListener('instaawheels:recent-locations-updated', handleRefresh);
     return () => {
       window.removeEventListener('storage', handleRefresh);
-      window.removeEventListener('palkicabs:recent-locations-updated', handleRefresh);
+      window.removeEventListener('instaawheels:recent-locations-updated', handleRefresh);
     };
   }, []);
 
@@ -546,7 +546,7 @@ const RecentLocationsList = ({ routePrefix }) => {
                   return loc;
                 });
                 setRecentLocations(updated);
-                localStorage.setItem('palkicabs:recentLocations', JSON.stringify(updated));
+                localStorage.setItem('instaawheels:recentLocations', JSON.stringify(updated));
               }}
               className={`hover:text-rose-500 transition-colors px-1 shrink-0 ${item.favourite ? 'text-rose-500' : 'text-slate-400'
                 }`}
@@ -575,7 +575,7 @@ const Home = () => {
       if (settings?.userHomeSettings && Object.keys(settings.userHomeSettings).length > 0) {
         return settings.userHomeSettings;
       }
-      const saved = window.localStorage.getItem('palkicabs:admin:user-app-settings');
+      const saved = window.localStorage.getItem('instaawheels:admin:user-app-settings');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -597,7 +597,7 @@ const Home = () => {
   useEffect(() => {
     const handleStorageChange = () => {
       try {
-        const saved = window.localStorage.getItem('palkicabs:admin:user-app-settings');
+        const saved = window.localStorage.getItem('instaawheels:admin:user-app-settings');
         if (saved) {
           const parsed = JSON.parse(saved);
           setUiSettings(prev => {
@@ -631,7 +631,7 @@ const Home = () => {
   const [activeServices, setActiveServices] = useState([]);
   const [pickupAddress, setPickupAddress] = useState(() => {
     try {
-      const saved = JSON.parse(window.localStorage.getItem('palkicabs:lastLocation') || '{}');
+      const saved = JSON.parse(window.localStorage.getItem('instaawheels:lastLocation') || '{}');
       return String(saved?.address || '').trim() || 'Indore, Madhya Pradesh';
     } catch (e) {
       return 'Indore, Madhya Pradesh';
@@ -639,7 +639,7 @@ const Home = () => {
   });
   const [isLocationLoading, setIsLocationLoading] = useState(() => {
     try {
-      const saved = JSON.parse(window.localStorage.getItem('palkicabs:lastLocation') || '{}');
+      const saved = JSON.parse(window.localStorage.getItem('instaawheels:lastLocation') || '{}');
       return !saved?.address;
     } catch {
       return true;
@@ -649,18 +649,18 @@ const Home = () => {
   useEffect(() => {
     const handleLocationUpdate = () => {
       try {
-        const saved = JSON.parse(window.localStorage.getItem('palkicabs:lastLocation') || '{}');
+        const saved = JSON.parse(window.localStorage.getItem('instaawheels:lastLocation') || '{}');
         setPickupAddress(String(saved?.address || '').trim() || 'Indore, Madhya Pradesh');
       } catch (e) { }
     };
     const handleLocationStatus = (e) => {
       setIsLocationLoading(e.detail === 'loading');
     };
-    window.addEventListener('palkicabs:location-updated', handleLocationUpdate);
-    window.addEventListener('palkicabs:location-status', handleLocationStatus);
+    window.addEventListener('instaawheels:location-updated', handleLocationUpdate);
+    window.addEventListener('instaawheels:location-status', handleLocationStatus);
     return () => {
-      window.removeEventListener('palkicabs:location-updated', handleLocationUpdate);
-      window.removeEventListener('palkicabs:location-status', handleLocationStatus);
+      window.removeEventListener('instaawheels:location-updated', handleLocationUpdate);
+      window.removeEventListener('instaawheels:location-status', handleLocationStatus);
     };
   }, []);
 

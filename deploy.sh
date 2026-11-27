@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-# Deploy the latest main on the server:  /opt/palkicabs/deploy.sh
-# Run as `palki` (or root - it re-runs itself as palki). Touches only PALKI.
+# Deploy the latest main on the server:  /opt/instaawheels/deploy.sh
+# Run as `instawheel` (or root - it re-runs itself as instawheel).
 set -euo pipefail
-APP=/opt/palkicabs
+APP=/opt/instaawheels
+APP_USER=instawheel
+if ! id "$APP_USER" >/dev/null 2>&1; then
+  APP_USER=palki
+fi
 cd /
-[ "$(id -un)" = palki ] || exec sudo -u palki -H bash "$APP/deploy.sh" "$@"
+[ "$(id -un)" = "$APP_USER" ] || exec sudo -u "$APP_USER" -H bash "$APP/deploy.sh" "$@"
 cd "$APP"
 
 [ -f Backend/.env ] || { echo "Backend/.env missing"; exit 1; }
@@ -24,7 +28,7 @@ sh scripts/scan-for-injected-code.sh   # abort the deploy if injected code is pr
 (cd frontend && npm ci && npm run build)
 
 cd Backend
-pm2 describe palkicabs-backend >/dev/null 2>&1 \
+pm2 describe instaawheels-backend >/dev/null 2>&1 \
   && pm2 reload ecosystem.config.cjs --update-env \
   || pm2 start ecosystem.config.cjs
 pm2 save
@@ -33,4 +37,4 @@ for i in $(seq 1 20); do
   curl -fsS http://127.0.0.1:5025/health >/dev/null && { echo "Deployed OK"; exit 0; }
   sleep 2
 done
-echo "Backend did not become healthy - check: pm2 logs palkicabs-backend"; exit 1
+echo "Backend did not become healthy - check: pm2 logs instaawheels-backend"; exit 1

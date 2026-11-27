@@ -490,7 +490,7 @@ const ServiceGrid = ({
       if (settings?.userHomeSettings && Object.keys(settings.userHomeSettings).length > 0) {
         return settings.userHomeSettings;
       }
-      const saved = window.localStorage.getItem('palkicabs:admin:user-app-settings');
+      const saved = window.localStorage.getItem('instaawheels:admin:user-app-settings');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -512,7 +512,7 @@ const ServiceGrid = ({
   useEffect(() => {
     const handleStorageChange = () => {
       try {
-        const saved = window.localStorage.getItem('palkicabs:admin:user-app-settings');
+        const saved = window.localStorage.getItem('instaawheels:admin:user-app-settings');
         if (saved) {
           const parsed = JSON.parse(saved);
           setUiSettings(prev => {
@@ -543,8 +543,8 @@ const ServiceGrid = ({
     const handleOpenModal = () => {
       setShowAllModal(true);
     };
-    window.addEventListener('palkicabs:open-all-services-modal', handleOpenModal);
-    return () => window.removeEventListener('palkicabs:open-all-services-modal', handleOpenModal);
+    window.addEventListener('instaawheels:open-all-services-modal', handleOpenModal);
+    return () => window.removeEventListener('instaawheels:open-all-services-modal', handleOpenModal);
   }, []);
 
   useEffect(() => {

@@ -20,7 +20,7 @@ import { uploadService } from '../../../../shared/services/uploadService';
 import api from '../../../../shared/api/axiosInstance';
 import { useSettings } from '../../../../shared/context/SettingsContext';
 
-const STORAGE_KEY = 'palkicabs:admin:user-app-settings';
+const STORAGE_KEY = 'instaawheels:admin:user-app-settings';
 
 const defaultSettings = {
   homeSections: {

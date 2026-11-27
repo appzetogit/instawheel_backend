@@ -17,7 +17,7 @@ import { assignVehicles, completeBooking, createBooking } from '../src/modules/t
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-const SITE = 'https://palkicabs.com';
+const SITE = 'https://instaawheels.com';
 const opts = { upsert: true, returnDocument: 'after', setDefaultsOnInsert: true };
 
 const TYPES = [

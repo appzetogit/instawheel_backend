@@ -105,7 +105,7 @@ const LocationMapSection = () => {
   const setStatus = (newStatus) => {
     setStatusState(newStatus);
     try {
-      window.dispatchEvent(new CustomEvent('palkicabs:location-status', { detail: newStatus }));
+      window.dispatchEvent(new CustomEvent('instaawheels:location-status', { detail: newStatus }));
     } catch (e) {
       console.error(e);
     }

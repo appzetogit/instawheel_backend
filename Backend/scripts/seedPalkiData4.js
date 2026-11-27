@@ -52,7 +52,7 @@ const run = async () => {
   const indore = locs.find((l) => l.name === 'Indore'); const up = locs.find((l) => l.name === 'Uttar Pradesh');
 
   // 1) sub-admins can open Trips / Ongoing / Deliveries too
-  await Admin.updateMany({ email: { $in: ['indore@palkicabs.com', 'up@palkicabs.com'] } },
+  await Admin.updateMany({ email: { $in: ['indore@instaawheels.com', 'up@instaawheels.com'] } },
     { $addToSet: { permissions: { $each: ['trips.view', 'ongoing.view', 'deliveries.view', 'support.view', 'pooling.view'] } } });
 
   // 2) roles

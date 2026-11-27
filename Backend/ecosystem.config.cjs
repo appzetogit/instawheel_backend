@@ -1,5 +1,5 @@
 /**
- * PALKI backend under PM2 on the dedicated server (palkicabs.com, see deploy/README.md).
+ * InstaaWheels backend under PM2 on the dedicated server (instaawheels.com, see deploy/README.md).
  *
  * One fork-mode instance on 127.0.0.1:5025. Socket.IO is only correct with a
  * single instance unless the Redis adapter is enabled - do not raise
@@ -11,7 +11,7 @@
 module.exports = {
   apps: [
     {
-      name: 'palkicabs-backend',
+      name: 'instaawheels-backend',
       script: 'server.js',
       cwd: __dirname,
       exec_mode: 'fork',

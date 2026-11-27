@@ -1,6 +1,6 @@
 # PALKI rebrand: implementation plan
 
-Goal: palkicabs.buytogetherindia.com should show **no trace of ZI CAB**: no name, contact details, cities, people, logos or legal text. It also gets a **brand-new homepage** built from scratch in the PALKI logo's theme, with animated car visuals.
+Goal: instaawheels.com should show **no trace of ZI CAB or PALKI**: no name, contact details, cities, people, logos or legal text. It also gets a **brand-new homepage** built from scratch in the InstaaWheels logo's theme, with animated car visuals.
 
 Status: **plan only, nothing changed yet.**
 

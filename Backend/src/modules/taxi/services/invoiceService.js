@@ -78,13 +78,13 @@ const realPhone = (value) => {
 };
 
 const companyDetails = (general, contact) => ({
-  name: String(general.app_name || 'PALKI').trim(),
-  legalName: String(general.company_name || contact.legalName || 'Bhaarat Apna Private Limited').trim(),
+  name: String(general.app_name || 'InstaaWheels').trim(),
+  legalName: String(general.company_name || contact.legalName || 'InstaaWheels Private Limited').trim(),
   tagline: String(contact.tagline || 'Reliable rides, simple journeys').trim(),
   address: String(contact.address || general.address || '').trim(),
   phone: realPhone(contact.whatsappDisplay) || realPhone(general.contact_phone_1) || realPhone(general.contact_booking_number),
   email: String(contact.email || general.contact_email || '').trim(),
-  website: String(general.website || 'palkicabs.com').trim(),
+  website: String(general.website || 'instaawheels.com').trim(),
   gstin: String(general.gst_number || general.gstin || '').trim(),
   city: String(contact.city || '').trim(),
 });

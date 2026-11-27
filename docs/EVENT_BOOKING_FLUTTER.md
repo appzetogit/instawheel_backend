@@ -2,7 +2,7 @@
 
 Event Booking lets a customer hire **several vehicles for one event** (wedding, corporate trip, yatra, school trip...). It is a separate module: its own API, its own payments, its own driver wallet. It does not touch rides, parcels, pooling or the ride wallet.
 
-- Base URL: `https://palkicabs.com/api/v1`
+- Base URL: `https://instaawheels.com/api/v1`
 - Headers on every call: `Authorization: Bearer <token>`, `Content-Type: application/json`
 - Rider screens use the **rider token** (`/users/events/*`). Driver screens use the **driver token** (`/drivers/events/*`). A driver token on a rider route (or the reverse) returns `403`.
 - Success: `{ "success": true, "data": ..., "message": "..." }`. Error: `{ "success": false, "message": "..." }` with a 4xx status. **Always show `message` to the user.**
@@ -107,7 +107,7 @@ Push failure never blocks a booking, so also refresh the list on app open and on
 ```json
 { "data": [ { "_id": "...", "name": "Wedding", "description": "...", "image": "/uploads/palki/event-catalog/....webp", "advancePercent": null } ] }
 ```
-`image` is a path on the server: prefix it with `https://palkicabs.com` unless it already starts with `http`. `advancePercent` null = global default.
+`image` is a path on the server: prefix it with `https://instaawheels.com` unless it already starts with `http`. `advancePercent` null = global default.
 
 #### Availability (call whenever pickup or dates change)
 `POST /users/events/availability`

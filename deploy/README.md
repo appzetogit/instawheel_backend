@@ -1,15 +1,15 @@
 # Deployment
 
-PALKI runs on its own server (`189.72.159.166`, Ubuntu) at **https://palkicabs.com**.
+InstaaWheels runs on its own server (`189.72.159.166`, Ubuntu) at **https://instaawheels.com**.
 
 | What | Where |
 |---|---|
-| Code (git clone of `appzetogit/palkicabs`) | `/opt/palkicabs`, owned by user `palki` |
-| Backend process | PM2 `palkicabs-backend` (user `palki`) -> `127.0.0.1:5025` (`Backend/ecosystem.config.cjs`) |
+| Code (git clone of `appzetogit/instawheel_backend`) | `/opt/instaawheels`, owned by user `instawheel` |
+| Backend process | PM2 `instaawheels-backend` (user `instawheel`) -> `127.0.0.1:5025` (`Backend/ecosystem.config.cjs`) |
 | Database | MongoDB Atlas (`MONGODB_URI` in `Backend/.env`) |
 | Redis | local `redis-server`, bound to 127.0.0.1 |
-| Frontend | static build served from `/opt/palkicabs/frontend/dist` |
-| nginx site | `deploy/nginx/palkicabs.com.conf` -> `/etc/nginx/sites-available/` |
+| Frontend | static build served from `/opt/instaawheels/frontend/dist` |
+| nginx site | `deploy/nginx/instaawheels.com.conf` -> `/etc/nginx/sites-available/` |
 | SSL | Let's Encrypt via certbot, auto-renewed by `certbot.timer` |
 | Secrets | `Backend/.env`, `frontend/.env.production` - on the server only, git-ignored |
 
@@ -24,9 +24,9 @@ PALKI runs on its own server (`189.72.159.166`, Ubuntu) at **https://palkicabs.c
 
 ```
 bash deploy/setup-server.sh        # as root
-# copy Backend/.env and frontend/.env.production into /opt/palkicabs (chown palki)
-/opt/palkicabs/deploy.sh
-certbot --nginx -d palkicabs.com -d www.palkicabs.com   # once DNS points here
+# copy Backend/.env and frontend/.env.production into /opt/instaawheels
+/opt/instaawheels/deploy.sh
+certbot --nginx -d instaawheels.com -d www.instaawheels.com   # once DNS points here
 ```
 
 ## Deploying an update
@@ -34,7 +34,7 @@ certbot --nginx -d palkicabs.com -d www.palkicabs.com   # once DNS points here
 Push to `main`, then on the server:
 
 ```
-/opt/palkicabs/deploy.sh
+/opt/instaawheels/deploy.sh
 ```
 
 It pulls `origin/main`, runs the injected-code scanner (aborts if it finds

@@ -154,7 +154,7 @@ const run = async () => {
 
   // 4) sub-admins (random passwords, printed once when created)
   const created = [];
-  for (const [name, email, phone, place] of [['Indore Manager', 'indore@palkicabs.com', '9000040001', INDORE], ['Uttar Pradesh Manager', 'up@palkicabs.com', '9000040002', UP]]) {
+  for (const [name, email, phone, place] of [['Indore Manager', 'indore@instaawheels.com', '9000040001', INDORE], ['Uttar Pradesh Manager', 'up@instaawheels.com', '9000040002', UP]]) {
     const exists = await Admin.findOne({ email }).lean();
     if (exists) continue;
     const pw = `Pk${crypto.randomBytes(6).toString('hex')}!`;

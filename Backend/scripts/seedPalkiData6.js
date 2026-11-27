@@ -22,7 +22,7 @@ import { createSupportMessage } from '../src/modules/taxi/chat/services/supportC
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
-const SITE = 'https://palkicabs.com';
+const SITE = 'https://instaawheels.com';
 const MIN = 60000;
 
 const run = async () => {

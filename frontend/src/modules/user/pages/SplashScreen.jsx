@@ -157,7 +157,7 @@ const SplashScreen = () => {
   // Automatic routing redirect logic after 2.5 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
-      sessionStorage.setItem('palkicabs_splash_seen', 'true');
+      sessionStorage.setItem('instaawheels_splash_seen', 'true');
       const token = getLocalUserToken();
       if (token) {
         navigate('/taxi/user', { replace: true });

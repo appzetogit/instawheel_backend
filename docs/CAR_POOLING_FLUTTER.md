@@ -1,6 +1,6 @@
 # PALKI Car Pooling — Flutter implementation guide
 
-Base URL: `https://palkicabs.com/api/v1`
+Base URL: `https://instaawheels.com/api/v1`
 All requests: `Authorization: Bearer <token>`, `Content-Type: application/json`.
 Every response is `{ "success": true|false, "data": ..., "message": "..." }`. On error `success=false` and `message` is safe to show to the user.
 

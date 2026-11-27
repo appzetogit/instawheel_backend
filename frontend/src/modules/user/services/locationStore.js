@@ -1,5 +1,5 @@
-export const LOCATION_STORAGE_KEY = 'palkicabs:lastLocation';
-export const LOCATION_UPDATED_EVENT = 'palkicabs:location-updated';
+export const LOCATION_STORAGE_KEY = 'instaawheels:lastLocation';
+export const LOCATION_UPDATED_EVENT = 'instaawheels:location-updated';
 
 export const DEFAULT_LOCATION_LABEL = 'Choose your location';
 export const DEFAULT_LOCATION_COORDS = [78.4867, 17.385];
