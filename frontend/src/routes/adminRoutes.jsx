@@ -253,7 +253,7 @@ const adminRoutes = (
       <Route path="pooling/create" element={<AdminPoolingManager mode="create" />} />
       <Route path="pooling/edit/:id" element={<AdminPoolingManager mode="edit" />} />
       <Route path="pooling/vehicles" element={<AdminPoolingVehicles />} />
-      <Route path="pooling/commission" element={<AdminPoolingCommissionManager />} />
+      {/* HIDDEN (pooling payment): <Route path="pooling/commission" element={<AdminPoolingCommissionManager />} /> */}
       <Route path="pooling/vehicles/create" element={<AdminPoolingVehicleForm />} />
       <Route path="pooling/vehicles/edit/:id" element={<AdminPoolingVehicleForm />} />
       <Route path="pooling/vehicles/view/:id" element={<AdminPoolingVehicleForm mode="view" />} />

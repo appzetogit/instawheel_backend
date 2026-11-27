@@ -95,6 +95,7 @@ const PoolingBookingDetail = () => {
           </div>
         </div>
 
+        {/* HIDDEN (pooling payment):
         <div className="rounded-3xl border border-slate-100 bg-white p-5 shadow-sm">
           <p className="mb-3 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400"><Wallet size={14} /> Payment</p>
           <div className="space-y-2">
@@ -120,6 +121,7 @@ const PoolingBookingDetail = () => {
             {b.bookingStatus === 'no_show' ? <p className="text-xs font-semibold text-amber-700">You did not board, so the payment is not refunded.</p> : null}
           </div>
         </div>
+        */}
 
         {b.canCancel ? (
           <button type="button" onClick={cancel} disabled={cancelling} className="w-full rounded-2xl border border-rose-200 bg-white py-3.5 text-sm font-black text-rose-600 disabled:opacity-50">

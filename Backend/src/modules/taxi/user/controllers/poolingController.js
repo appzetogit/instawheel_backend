@@ -469,8 +469,60 @@ export const verifyPoolingBookingPayment = asyncHandler(async (req, res) => {
   return created(res, serializePoolingBooking(hydrated), 'Pooling booking confirmed successfully');
 });
 
-export const createPoolingBooking = asyncHandler(async (_req, _res) => {
-  throw new ApiError(405, 'Direct pooling booking is disabled. Please complete online payment first.');
+export const createPoolingBooking = asyncHandler(async (req, res) => {
+  const userId = getCurrentUserId(req);
+  if (!userId) throw new ApiError(401, 'User authentication is required');
+
+  const p = await prepareBooking(req.body || {});
+  const alreadyBooked = await getBookedSeatIds(p);
+  const conflict = p.selectedSeats.find((seatId) => alreadyBooked.includes(seatId));
+  if (conflict) throw new ApiError(409, `Seat ${conflict} was just booked by another user.`);
+
+  // HIDDEN (pooling payment): Direct booking without payment / commission
+  const booking = await PoolingBooking.create({
+    bookingId: createPoolingBookingCode(),
+    user: userId,
+    route: p.routeId,
+    vehicle: p.vehicleId,
+    scheduleId: p.scheduleId,
+    pickupStopId: String(p.pickupStop.id || ''),
+    dropStopId: String(p.dropStop.id || ''),
+    seatsBooked: p.selectedSeats.length,
+    selectedSeats: p.selectedSeats,
+    boardKm: p.quote?.boardKm || 0,
+    dropKm: p.quote?.dropKm || 0,
+    distancePriced: false,
+    fare: 0,
+    baseFare: 0,
+    serviceTaxPercentage: 0,
+    serviceTaxAmount: 0,
+    driverCommissionPercentage: 0,
+    ownerCommissionPercentage: 0,
+    currency: 'INR',
+    paymentStatus: 'paid',
+    bookingStatus: 'confirmed',
+    travelDate: new Date(`${p.travelDate}T00:00:00.000Z`),
+    pickupLabel: p.pickupStop.name || p.pickupStop.address || p.route.originLabel || '',
+    dropLabel: p.dropStop.name || p.dropStop.address || p.route.destinationLabel || '',
+    otp: createBoardingOtp(),
+    payment: { provider: 'none', status: 'free', orderId: '', paymentId: '', signature: '', paidAt: new Date() },
+  });
+
+  try {
+    await PoolingSeatReservation.insertMany(
+      p.selectedSeats.map((seatId) => ({ route: p.routeId, vehicle: p.vehicleId, booking: booking._id, scheduleId: p.scheduleId, travelDate: p.travelDate, seatId })),
+      { ordered: true },
+    );
+  } catch (error) {
+    await PoolingBooking.deleteOne({ _id: booking._id });
+    await PoolingSeatReservation.deleteMany({ booking: booking._id });
+    if (error?.code === 11000) throw new ApiError(409, 'One or more selected seats were just booked by another user.');
+    throw error;
+  }
+
+  const populate = (q) => q.populate('route', 'routeName originLabel destinationLabel schedules').populate('vehicle', 'name vehicleNumber driverName driverPhone');
+  const hydrated = await populate(PoolingBooking.findById(booking._id));
+  return created(res, serializePoolingBooking(hydrated), 'Pooling booking confirmed successfully');
 });
 
 /** The rider's bookings, each with what they are paying right now given who else is on the trip. */

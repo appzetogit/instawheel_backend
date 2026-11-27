@@ -139,7 +139,7 @@ export const ADMIN_SIDEBAR_SECTIONS = [
         subItems: [
           { label: 'Pending Pooling Drivers', path: '/admin/pooling/pending-drivers', permission: 'pooling.view' },
           { label: 'Pooling Vehicles', path: '/admin/pooling/vehicles', permission: 'pooling.view' },
-          { label: 'Pooling Commission', path: '/admin/pooling/commission', permission: 'pooling.view' },
+          // HIDDEN (pooling payment): { label: 'Pooling Commission', path: '/admin/pooling/commission', permission: 'pooling.view' },
           { label: 'Routes & Stops', path: '/admin/pooling/routes', permission: 'pooling.view' },
           { label: 'Pooling Bookings', path: '/admin/pooling/bookings', permission: 'pooling.view' },
         ],

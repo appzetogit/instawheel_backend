@@ -42,10 +42,9 @@ const TripCard = ({ trip, busy, onStart, onComplete, onBoard }) => {
         <span className={`rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${TRIP_TONE[trip.status] || 'bg-slate-100 text-slate-600'}`}>{trip.status}</span>
       </div>
 
-      <div className="mt-3 grid grid-cols-3 gap-2 text-center">
+      <div className="mt-3 grid grid-cols-2 gap-2 text-center">
         <div className="rounded-2xl bg-slate-50 p-2.5"><p className="text-[10px] font-black uppercase text-slate-400">Seats</p><p className="text-sm font-black text-slate-900">{trip.seatsBooked}/{trip.seatsInVehicle}</p></div>
-        <div className="rounded-2xl bg-slate-50 p-2.5"><p className="text-[10px] font-black uppercase text-slate-400">Collected</p><p className="text-sm font-black text-slate-900">{rupees(trip.totals.collected)}</p></div>
-        <div className="rounded-2xl bg-slate-50 p-2.5"><p className="text-[10px] font-black uppercase text-slate-400">{done ? 'You earned' : 'You earn (est.)'}</p><p className="text-sm font-black text-emerald-700">{rupees(done ? trip.totals.settledDriverEarning : trip.totals.estimatedDriverEarning)}</p></div>
+        <div className="rounded-2xl bg-slate-50 p-2.5"><p className="text-[10px] font-black uppercase text-slate-400">Riders</p><p className="text-sm font-black text-slate-900">{trip.passengers.length}</p></div>
       </div>
 
       <div className="mt-4 space-y-2.5">
@@ -59,9 +58,7 @@ const TripCard = ({ trip, busy, onStart, onComplete, onBoard }) => {
               </div>
               <div className="text-right">
                 <span className={`rounded-full px-2 py-0.5 text-[10px] font-black uppercase ${PAX_TONE[p.status] || 'bg-slate-100 text-slate-600'}`}>{p.status.replace('_', ' ')}</span>
-                <p className="mt-1 text-[11px] font-semibold text-slate-500">
-                  {p.finalFare !== null ? `Fare ${rupees(p.finalFare)}` : p.estimatedFare !== null ? `Share ~${rupees(p.estimatedFare)}` : ''}
-                </p>
+                {/* HIDDEN (pooling payment): <p className="mt-1 text-[11px] font-semibold text-slate-500">{p.finalFare !== null ? `Fare ${rupees(p.finalFare)}` : p.estimatedFare !== null ? `Share ~${rupees(p.estimatedFare)}` : ''}</p> */}
               </div>
             </div>
             {trip.status === 'started' && p.status === 'confirmed' ? (
@@ -145,6 +142,7 @@ const PoolingDriverBookings = () => {
         <Link to="/taxi/driver/pooling" className="text-xs font-bold text-slate-500">Profile</Link>
       </div>
 
+      {/* HIDDEN (pooling payment):
       {earnings ? (
         <div className="mb-5 flex items-center gap-4 rounded-3xl bg-slate-900 p-5 text-white">
           <Wallet size={26} className="text-emerald-300" />
@@ -155,6 +153,7 @@ const PoolingDriverBookings = () => {
           </div>
         </div>
       ) : null}
+      */}
 
       {loading ? <div className="flex justify-center py-16"><Loader2 className="animate-spin text-slate-400" /></div> : null}
       {!loading && trips.length === 0 ? (
@@ -168,7 +167,7 @@ const PoolingDriverBookings = () => {
             trip={t}
             busy={busy}
             onStart={() => act(() => startPoolingDriverTrip(keyOf(t)), 'Trip started')}
-            onComplete={() => window.confirm('Complete the trip? Fares are settled now.') && act(() => completePoolingDriverTrip(keyOf(t)), 'Trip completed and settled')}
+            onComplete={() => window.confirm('Complete the trip?') && act(() => completePoolingDriverTrip(keyOf(t)), 'Trip completed')}
             onBoard={(bookingId, otp) => act(() => boardPoolingPassenger(bookingId, otp), 'Rider boarded')}
           />
         ))}

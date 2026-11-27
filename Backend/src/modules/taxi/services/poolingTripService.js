@@ -190,6 +190,23 @@ export const completeTrip = async ({ vehicleId, routeId, scheduleId, travelDate 
   const byId = Object.fromEntries(bookings.map((b) => [String(b._id), b]));
   const totals = { riders: boarded.length, noShows: noShows.length, collected: 0, refunded: 0, tax: 0, platformCommission: 0, ownerShare: 0, driverEarning: 0, noShowForfeit: 0 };
 
+  // HIDDEN (pooling payment): No financial fare, commission or wallet transactions for pooling
+  for (const b of bookings) {
+    const isNoShow = b.bookingStatus === 'confirmed';
+    await PoolingBooking.findOneAndUpdate(
+      { _id: b._id, settledAt: null },
+      { $set: {
+        bookingStatus: isNoShow ? 'no_show' : 'completed',
+        finalBaseFare: 0, finalTaxAmount: 0, finalFare: 0,
+        refundAmount: 0, refundTo: '',
+        platformCommissionAmount: 0, ownerShareAmount: 0, driverEarningAmount: 0,
+        driverCommissionAmount: 0, ownerCommissionAmount: 0,
+        settledAt: new Date(),
+      } },
+    );
+  }
+
+  /* HIDDEN (pooling payment):
   for (const row of rows) {
     const b = byId[row.bookingId];
     const isNoShow = b.bookingStatus === 'confirmed';
@@ -228,12 +245,20 @@ export const completeTrip = async ({ vehicleId, routeId, scheduleId, travelDate 
       });
     }
   }
+  */
 
   await PoolingTrip.updateOne({ _id: claimed._id }, { $set: { settlement: totals } });
   return { tripId: String(claimed._id), status: 'completed', settlement: totals };
 };
 
 export const driverEarnings = async ({ vehicleId }) => {
+  // HIDDEN (pooling payment): No earnings tracking for car pooling
+  return {
+    walletBalance: 0,
+    totalEarnings: 0,
+    trips: [],
+  };
+  /*
   const vehicle = await PoolingVehicle.findById(vehicleId).select('walletBalance totalEarnings name vehicleNumber').lean();
   if (!vehicle) throw new ApiError(404, 'Pooling vehicle not found');
   const recent = await PoolingTrip.find({ vehicle: vehicleId, status: 'completed' }).sort({ completedAt: -1 }).limit(30).populate('route', 'routeName').lean();
@@ -242,4 +267,5 @@ export const driverEarnings = async ({ vehicleId }) => {
     totalEarnings: round2(vehicle.totalEarnings),
     trips: recent.map((t) => ({ tripId: String(t._id), routeName: t.route?.routeName || '', travelDate: t.travelDate, completedAt: t.completedAt, ...t.settlement })),
   };
+  */
 };

@@ -137,12 +137,8 @@ const PoolingConfirm = () => {
     setIsBooking(true);
 
     try {
-      const scriptLoaded = await loadRazorpayScript();
-      if (!scriptLoaded) {
-        throw new Error('Razorpay SDK failed to load');
-      }
-
-      const orderResponse = await userService.createPoolingBookingOrder({
+      // HIDDEN (pooling payment): Direct booking without Razorpay or online payment
+      const bookingResponse = await userService.createPoolingBooking({
         routeId: route._id,
         vehicleId: vehicle._id,
         scheduleId: schedule.id,
@@ -151,67 +147,16 @@ const PoolingConfirm = () => {
         pickupStopId: pickupStop.id,
         dropStopId: dropStop.id,
       });
-      const order = unwrapPayload(orderResponse);
+      const booking = unwrapPayload(bookingResponse);
 
-      if (!order.keyId || !order.orderId) {
-        throw new Error('Unable to start pooling payment');
-      }
-
-      const rzp = new window.Razorpay({
-        key: order.keyId,
-        amount: order.amount,
-        currency: order.currency || 'INR',
-        name: 'Pooling Booking',
-        description: `${route.originLabel} to ${route.destinationLabel}`,
-        order_id: order.orderId,
-        modal: {
-          ondismiss: () => {
-            setIsBooking(false);
-          },
-        },
-        theme: {
-          color: '#0f172a',
-        },
-        handler: async (response) => {
-          try {
-            const verifyResponse = await userService.verifyPoolingBookingPayment({
-              ...response,
-              routeId: route._id,
-              vehicleId: vehicle._id,
-              scheduleId: schedule.id,
-              travelDate,
-              selectedSeats,
-              pickupStopId: pickupStop.id,
-              dropStopId: dropStop.id,
-            });
-            const booking = unwrapPayload(verifyResponse);
-
-            setConfirmedBooking(booking);
-            setIsBooked(true);
-            toast.success('Pooling booking confirmed');
-          } catch (verifyError) {
-            const message =
-              verifyError?.response?.data?.message ||
-              verifyError?.message ||
-              'Payment verification failed. Please contact support if payment was deducted.';
-            toast.error(message);
-            setIsBooking(false);
-          }
-        },
-      });
-
-      rzp.on('payment.failed', (event) => {
-        const message = event?.error?.description || event?.error?.reason || 'Payment failed';
-        toast.error(message);
-        setIsBooking(false);
-      });
-
-      rzp.open();
+      setConfirmedBooking(booking);
+      setIsBooked(true);
+      toast.success('Pooling booking confirmed');
     } catch (error) {
       const message =
         error?.response?.data?.message ||
         error?.message ||
-        'Unable to continue with Razorpay payment';
+        'Unable to confirm pooling booking';
       toast.error(message);
       setIsBooking(false);
     }
@@ -297,16 +242,15 @@ const PoolingConfirm = () => {
                     </div>
                   </div>
                   <div className="rounded-3xl border border-slate-100 bg-slate-50/50 p-5 transition-all hover:bg-slate-50">
-                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Amount Paid</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Status</p>
                     <div className="mt-4 flex items-start gap-3">
                       <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-white text-emerald-600 shadow-sm">
-                        <Receipt size={16} />
+                        <ShieldCheck size={16} />
                       </div>
                       <div>
-                        <p className="text-lg font-black text-slate-900">₹{confirmedBooking?.fare || fareBreakdown.totalFare || totalFare}</p>
+                        <p className="text-lg font-black text-slate-900">Confirmed</p>
                         <p className="mt-0.5 text-[10px] font-bold text-emerald-600 uppercase tracking-widest flex items-center gap-1">
-                          <ShieldCheck size={10} />
-                          PAID
+                          Ride Booked
                         </p>
                       </div>
                     </div>
@@ -532,9 +476,9 @@ const PoolingConfirm = () => {
                 </div>
               </motion.div>
 
+              {/* HIDDEN (pooling payment):
               <PoolingFareCard quote={quote} />
 
-              {/* Fare Breakdown Card */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -580,7 +524,6 @@ const PoolingConfirm = () => {
                 </div>
               </motion.div>
 
-              {/* Payment Method Card */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -608,6 +551,7 @@ const PoolingConfirm = () => {
                   </div>
                 </div>
               </motion.div>
+              */}
             </div>
 
             {/* Action Bar */}
@@ -626,7 +570,7 @@ const PoolingConfirm = () => {
                     </div>
                   ) : (
                     <>
-                      <span className="uppercase tracking-[0.2em]">Confirm & Pay ₹{fareBreakdown.totalFare}</span>
+                      <span className="uppercase tracking-[0.2em]">Confirm Booking</span>
                       <div className="rounded-full bg-slate-900 p-1 text-white group-hover:translate-x-1 transition-transform">
                         <ChevronRight size={18} />
                       </div>

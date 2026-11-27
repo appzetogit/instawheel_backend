@@ -180,6 +180,13 @@ const PoolingList = () => {
                          </div>
                       </div>
                       
+                      {/* HIDDEN (pooling payment): Price display hidden */}
+                      <div className="text-right">
+                         <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-[10px] font-black uppercase tracking-widest text-emerald-700">
+                           Available
+                         </span>
+                      </div>
+                      {/*
                       <div className="text-right">
                          <p className="text-3xl font-black tracking-tight text-slate-900 leading-none">₹{route.farePerSeat}</p>
                          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mt-1.5">Per Seat</p>
@@ -189,6 +196,7 @@ const PoolingList = () => {
                            </p>
                          ) : null}
                       </div>
+                      */}
                     </div>
                   </div>
 

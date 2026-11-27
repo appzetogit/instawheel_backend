@@ -257,13 +257,12 @@ const PoolingSeats = () => {
           </div>
           <div className="flex items-center gap-3 rounded-2xl border border-slate-100 bg-slate-50/50 p-3 hover:bg-slate-50 transition-colors">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
-              <Zap size={18} className="text-amber-500 fill-amber-500/10" />
+              <ShieldCheck size={18} className="text-emerald-500 fill-emerald-500/10" />
             </div>
             <div className="min-w-0">
-              <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">Base Fare</p>
+              <p className="text-[9px] font-black uppercase tracking-widest text-slate-400">Ride Type</p>
               <p className="text-xs font-black text-slate-900">
-                ₹{route?.farePerSeat}
-                <span className="text-[9px] font-bold text-slate-400 ml-1">/seat</span>
+                Shared Ride
               </p>
             </div>
           </div>
@@ -327,7 +326,7 @@ const PoolingSeats = () => {
           })()}
         </div>
 
-        <PoolingFareCard quote={quote} loading={quoting} error={quoteError} />
+        {/* HIDDEN (pooling payment): <PoolingFareCard quote={quote} loading={quoting} error={quoteError} /> */}
 
         <div className="mb-10 flex flex-col items-center">
           <p className="mb-6 text-[11px] font-black uppercase tracking-[0.25em] text-slate-400">Select your preferred seat</p>
@@ -497,11 +496,11 @@ const PoolingSeats = () => {
               >
                 <div className="flex items-center justify-between pl-6 pr-2 py-2">
                   <div>
-                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">You pay now (maximum)</p>
+                    <p className="text-[9px] font-black uppercase tracking-[0.25em] text-slate-400">Selected Seats</p>
                     <div className="flex items-baseline gap-2 mt-0.5">
-                      <span className="text-2xl font-black text-white">₹{quote?.maxTotal ?? fareBreakdown.totalFare}</span>
-                      <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">
-                        ({selectedSeats.length} {selectedSeats.length === 1 ? 'Seat' : 'Seats'})
+                      <span className="text-2xl font-black text-white">{selectedSeats.length} {selectedSeats.length === 1 ? 'Seat' : 'Seats'}</span>
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                        ({selectedSeats.join(', ')})
                       </span>
                     </div>
                   </div>
@@ -527,7 +526,7 @@ const PoolingSeats = () => {
                   <Armchair size={20} />
                 </div>
                 <p className="text-[11px] font-black uppercase tracking-widest text-slate-400 leading-relaxed">
-                  Select a seat to see <br /> fare breakdown
+                  Select your preferred seat <br /> to continue
                 </p>
               </motion.div>
             )}

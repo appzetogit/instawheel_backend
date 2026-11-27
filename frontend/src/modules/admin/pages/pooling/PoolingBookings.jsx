@@ -164,7 +164,7 @@ const PoolingBookings = () => {
                 <th className="px-3 py-2 !normal-case !tracking-normal !text-xs !font-bold">Customer</th>
                 <th className="px-3 py-2 !normal-case !tracking-normal !text-xs !font-bold">Route & Journey</th>
                 <th className="px-3 py-2 !normal-case !tracking-normal !text-xs !font-bold">Date & Details</th>
-                <th className="px-3 py-2 !normal-case !tracking-normal !text-xs !font-bold">Fare & Payment</th>
+                {/* HIDDEN (pooling payment): <th className="px-3 py-2 !normal-case !tracking-normal !text-xs !font-bold">Fare & Payment</th> */}
                 <th className="px-3 py-2 !normal-case !tracking-normal !text-xs !font-bold">Status</th>
                 <th className="px-3 py-2 text-right !normal-case !tracking-normal !text-xs !font-bold">Actions</th>
               </tr>
@@ -238,6 +238,7 @@ const PoolingBookings = () => {
                         </div>
                       </div>
                     </td>
+                    {/* HIDDEN (pooling payment):
                     <td className="px-3 py-2">
                       <div className="flex flex-col gap-1">
                         <div className="flex items-center gap-0.5 font-black text-slate-900">
@@ -251,6 +252,7 @@ const PoolingBookings = () => {
                         </span>
                       </div>
                     </td>
+                    */}
                     <td className="px-3 py-2">
                       <span className={`inline-flex items-center gap-1 rounded border px-2 py-0.5 text-[9px] font-black uppercase tracking-wide ${getStatusStyle(booking.bookingStatus)}`}>
                         {booking.bookingStatus}
