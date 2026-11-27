@@ -9,8 +9,6 @@ Appzeto 24_driver_webview/
 scratch/
 
 # Environment variables & secrets
-.env
-.env.*
 !.env.example
 !.env*.example
 firebase-service-account*.json

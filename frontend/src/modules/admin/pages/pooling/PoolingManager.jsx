@@ -520,7 +520,8 @@ const PoolingManager = ({ mode: propMode }) => {
     if (!formData.originLabel.trim()) errors.originLabel = 'Origin location is required.';
     if (!formData.destinationLabel.trim()) errors.destinationLabel = 'Destination is required.';
     if (formData.assignedVehicleTypeIds.length === 0) errors.assignedVehicleTypeIds = 'Select at least one pooling-enabled vehicle.';
-    if (Number(formData.farePerSeat || 0) <= 0) errors.farePerSeat = 'Fare per seat must be greater than zero.';
+    // HIDDEN (pooling charges): Fare per seat validation bypassed for free car pooling
+    // if (Number(formData.farePerSeat || 0) <= 0) errors.farePerSeat = 'Fare per seat must be greater than zero.';
     if (Number(formData.maxSeatsPerBooking || 0) <= 0) errors.maxSeatsPerBooking = 'Max seats per booking must be at least 1.';
     if (Number(formData.maxAdvanceBookingHours || 0) < 0) errors.maxAdvanceBookingHours = 'Advance booking window cannot be negative.';
     if (Number(formData.boardingBufferMinutes || 0) < 0) errors.boardingBufferMinutes = 'Boarding buffer cannot be negative.';
@@ -780,10 +781,12 @@ const PoolingManager = ({ mode: propMode }) => {
                                 </span>
                               ) : null}
                             </div>
+                            {/* HIDDEN (pooling charges): fare per seat display
                             <p className="mt-0.5 flex items-center gap-1 text-[9px] font-semibold text-slate-500">
                               <IndianRupee size={8} />
                               {item.farePerSeat || 0} / seat
                             </p>
+                            */}
                           </div>
                         </td>
                         <td className="px-3 py-2">
@@ -1109,9 +1112,9 @@ const PoolingManager = ({ mode: propMode }) => {
 
             <div className="lg:col-span-2 rounded-[24px] border border-slate-200 bg-slate-50/70 px-5 py-4">
               <p className="text-[10px] font-black uppercase tracking-[0.22em] text-indigo-500">Section 4</p>
-              <h2 className="mt-1 text-lg font-black text-slate-900">Schedule, Fare, And Rules</h2>
+              <h2 className="mt-1 text-lg font-black text-slate-900">Schedule And Rules</h2>
               <p className="mt-1 text-sm font-medium text-slate-500">
-                Set departure timings, per-seat pricing, booking limits, and the operating rules for the pooled route.
+                Set departure timings, booking limits, and the operating rules for the pooled route.
               </p>
             </div>
 
@@ -1205,12 +1208,13 @@ const PoolingManager = ({ mode: propMode }) => {
 
             <div className="space-y-6">
               <div className="rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm">
-                <h3 className="text-base font-black text-slate-900">Fare Setup</h3>
+                <h3 className="text-base font-black text-slate-900">Booking Limits & Buffer</h3>
                 <p className="mt-1 text-xs font-medium text-slate-500">
-                  These values control how riders are priced and how many seats they can reserve at once.
+                  These values control booking windows and how many seats riders can reserve at once.
                 </p>
 
                 <div className="mt-4 space-y-4">
+                  {/* HIDDEN (pooling charges): Fare per seat and distance pricing inputs
                   <div>
                     <label className={labelClass}>Route distance (km)</label>
                     <input
@@ -1222,7 +1226,7 @@ const PoolingManager = ({ mode: propMode }) => {
                       placeholder="100"
                     />
                     <p className="mt-1 text-[11px] font-medium text-slate-500">
-                      Set this and the "Km from start" of every stop to share the fare by distance: fare per seat × seats in the vehicle is the whole-vehicle fare, divided between riders by how far each travels. Leave 0 to charge a flat fare per seat.
+                      Set this and the "Km from start" of every stop to share the fare by distance.
                     </p>
                   </div>
                   <div>
@@ -1235,6 +1239,7 @@ const PoolingManager = ({ mode: propMode }) => {
                       placeholder="149"
                     />
                   </div>
+                  */}
                   <div>
                     <label className={labelClass}>Max Seats Per Booking</label>
                     <input
@@ -1321,6 +1326,7 @@ const PoolingManager = ({ mode: propMode }) => {
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
+                    {/* HIDDEN (pooling charges): Seat Fare card
                     <div className="rounded-2xl bg-white px-4 py-3 shadow-sm">
                       <div className="flex items-center gap-2 text-slate-500">
                         <IndianRupee size={15} />
@@ -1328,6 +1334,7 @@ const PoolingManager = ({ mode: propMode }) => {
                       </div>
                       <p className="mt-1 text-lg font-black text-slate-900">Rs {formData.farePerSeat}</p>
                     </div>
+                    */}
                     <div className="rounded-2xl bg-white px-4 py-3 shadow-sm">
                       <div className="flex items-center gap-2 text-slate-500">
                         <Users size={15} />

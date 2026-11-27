@@ -163,9 +163,16 @@ const SharedTaxiSeats = () => {
               <div className="flex items-center gap-1"><Clock size={10} strokeWidth={2} />{route.departure}</div>
               <div className="flex items-center gap-1"><Users size={10} strokeWidth={2} />{route.duration}</div>
             </div>
+            {/* HIDDEN (pooling charges): per seat price
             <div className="text-right shrink-0">
               <p className="text-[9px] font-extrabold text-emerald-600 uppercase tracking-[0.18em]">Per seat</p>
               <p className="text-[18px] font-extrabold text-[#20A354] leading-tight">₹{route.price}</p>
+            </div>
+            */}
+            <div className="text-right shrink-0">
+              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-600">
+                Shared
+              </span>
             </div>
           </motion.div>
 
@@ -263,13 +270,20 @@ const SharedTaxiSeats = () => {
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 12 }}
               className="pointer-events-auto mb-2 flex items-center justify-between rounded-[16px] border border-white/80 bg-white/90 shadow-[0_4px_14px_rgba(16,185,129,0.08)] px-4 py-3">
               <div>
-                <p className="text-[10px] font-extrabold text-slate-400 uppercase tracking-wider">
+                <p className="text-[11px] font-extrabold text-slate-700 uppercase tracking-wider">
                   {selected.length} seat{selected.length > 1 ? 's' : ''} · {selected.map(s=>s.label).join(', ')}
                 </p>
+                {/* HIDDEN (pooling charges): total price
                 <p className="text-[18px] font-extrabold text-[#20A354] leading-tight">₹{total}</p>
+                */}
               </div>
+              {/* HIDDEN (pooling charges):
               <span className="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-100 px-2 py-1 rounded-full">
                 {selected.length}x ₹{route?.price}
+              </span>
+              */}
+              <span className="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-full">
+                Selected
               </span>
             </motion.div>
           )}

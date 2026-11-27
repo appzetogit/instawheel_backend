@@ -187,9 +187,16 @@ const SharedTaxi = () => {
                           <span className="text-[13px] font-extrabold text-slate-900 leading-tight truncate">{r.to}</span>
                         </div>
                       </div>
+                      {/* HIDDEN (pooling charges): per seat price
                       <div className="text-right shrink-0">
                         <p className="text-[9px] font-extrabold text-emerald-600 uppercase tracking-[0.2em]">Per seat</p>
                         <p className="text-[22px] font-extrabold text-[#20A354] leading-tight tracking-tighter">₹{r.price}</p>
+                      </div>
+                      */}
+                      <div className="text-right shrink-0">
+                        <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-600">
+                          Shared
+                        </span>
                       </div>
                     </div>
 

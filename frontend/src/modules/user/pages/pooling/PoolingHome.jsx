@@ -367,9 +367,16 @@ const PoolingHome = () => {
                     </div>
                   </div>
                 </div>
+                {/* HIDDEN (pooling charges): per-seat price
                 <div className="text-right">
                   <p className="text-xl font-black text-slate-900">₹{route.price}</p>
                   <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.2em]">FARES</p>
+                </div>
+                */}
+                <div className="text-right">
+                  <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-600">
+                    Shared
+                  </span>
                 </div>
               </div>
               

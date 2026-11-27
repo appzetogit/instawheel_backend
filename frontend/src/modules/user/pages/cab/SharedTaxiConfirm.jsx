@@ -101,7 +101,12 @@ const SharedTaxiConfirm = () => {
                 <p className="text-[10px] font-semibold text-slate-400">{date} · {route.departure}</p>
                 <p className="text-[10px] font-semibold text-slate-400">Seats: {seats?.map(s=>s.label).join(', ')}</p>
               </div>
+              {/* HIDDEN (pooling charges):
               <p className="text-[20px] font-extrabold text-[#20A354]">₹{grandTotal}</p>
+              */}
+              <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-emerald-600">
+                Confirmed
+              </span>
             </div>
             
             <div className="mt-1 border-t border-dashed border-slate-100 pt-2 space-y-1">
@@ -222,7 +227,7 @@ const SharedTaxiConfirm = () => {
           </div>
         </motion.div>
 
-        {/* Fare breakdown */}
+        {/* HIDDEN (pooling charges): Fare breakdown and Payment method
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
           className="rounded-[20px] border border-white/80 bg-white/90 shadow-[0_4px_14px_rgba(15,23,42,0.05)] px-4 py-4 space-y-2">
           <p className="text-[9px] font-extrabold uppercase tracking-[0.22em] text-emerald-600">Fare Breakdown</p>
@@ -245,7 +250,6 @@ const SharedTaxiConfirm = () => {
           </div>
         </motion.div>
 
-        {/* Payment method */}
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
           className="rounded-[20px] border border-white/80 bg-white/90 shadow-[0_4px_14px_rgba(15,23,42,0.05)] px-4 py-4 space-y-2.5">
           <p className="text-[9px] font-extrabold uppercase tracking-[0.22em] text-emerald-600">Payment Method</p>
@@ -261,6 +265,7 @@ const SharedTaxiConfirm = () => {
             ))}
           </div>
         </motion.div>
+        */}
       </div>
 
       {/* CTA */}
@@ -269,7 +274,7 @@ const SharedTaxiConfirm = () => {
           className="pointer-events-auto w-full bg-[#20A354] hover:bg-[#1a8543] py-4 rounded-[18px] text-[15px] font-extrabold text-white shadow-[0_8px_24px_rgba(32,163,84,0.25)] flex items-center justify-center gap-2 transition-all">
           {paying
             ? <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-            : <><CheckCircle2 size={16} strokeWidth={2.5} /> Confirm & Pay ₹{grandTotal}</>}
+            : <><CheckCircle2 size={16} strokeWidth={2.5} /> Confirm Booking</>}
         </motion.button>
       </div>
     </div>

@@ -297,41 +297,50 @@ export const BookingDetailsDrawer = ({ booking, onClose }) => {
                 <KV label="Departure">{[pool.scheduleLabel, pool.departureTime].filter(Boolean).join(' · ')}</KV>
                 <KV label="Arrival">{pool.arrivalTime}</KV>
                 <KV label="Seats booked">{pool.seatsBooked} ({(pool.selectedSeats || []).join(', ') || '--'})</KV>
+                {/* HIDDEN (pooling charges): Fare per seat and payment details
                 <KV label="Fare per seat">{money(pool.farePerSeat)}</KV>
+                */}
                 <KV label="Vehicle">{[pool.vehicleModel, pool.vehicleNumber].filter(Boolean).join(' · ')}</KV>
+                {/* HIDDEN (pooling charges):
                 {pool.distancePriced ? <KV label="Km on this trip">{`${pool.boardKm} to ${pool.dropKm} km (${Math.max(0, pool.dropKm - pool.boardKm)} km of ${pool.routeKm})`}</KV> : null}
                 <KV label="Paid up front">{money(pool.paidUpFront)}</KV>
                 {pool.settled ? <KV label="Refunded to wallet">{money(pool.refundAmount)}</KV> : null}
                 <KV label="Commission split">{`Driver ${pool.driverCommissionPercentage}% · Owner ${pool.ownerCommissionPercentage}% · Tax ${pool.serviceTaxPercentage}%`}</KV>
+                */}
               </div>
             </Section>
           ) : null}
 
-          <Section icon={IndianRupee} title="Fare breakdown">
-            <Line label="Base fare" value={f.baseFare || f.totalFare - (f.waitingCharge + f.tollCharges + f.airportFee + f.platformFee) + f.promoDiscount} />
-            {f.waitingCharge ? <Line label={`Waiting charge (${f.waitingMinutes} min)`} value={f.waitingCharge} /> : null}
-            {f.tollCharges ? <Line label="Toll" value={f.tollCharges} /> : null}
-            {f.airportFee ? <Line label="Airport fee" value={f.airportFee} /> : null}
-            {f.surgeMultiplier > 1 ? <Line label={`Surge x${f.surgeMultiplier}`} value={0} /> : null}
-            {f.platformFee ? <Line label="Platform fee" value={f.platformFee} /> : null}
-            {f.promoDiscount ? <Line label={`Promo ${f.promoCode}`} value={f.promoDiscount} minus /> : null}
-            <Line label="Total fare" value={f.totalFare ?? b.fare} bold />
-            {(f.commission || f.driverEarnings) ? (
-              <div className="mt-3 rounded-lg bg-gray-50 p-3">
-                <Line label="InstaaWheels commission" value={f.commission} />
-                <Line label="Driver earnings" value={f.driverEarnings} />
-              </div>
-            ) : null}
-          </Section>
+          {/* HIDDEN (pooling charges): Hide Fare breakdown and Payment sections for pooling trips */}
+          {!pool ? (
+            <>
+              <Section icon={IndianRupee} title="Fare breakdown">
+                <Line label="Base fare" value={f.baseFare || f.totalFare - (f.waitingCharge + f.tollCharges + f.airportFee + f.platformFee) + f.promoDiscount} />
+                {f.waitingCharge ? <Line label={`Waiting charge (${f.waitingMinutes} min)`} value={f.waitingCharge} /> : null}
+                {f.tollCharges ? <Line label="Toll" value={f.tollCharges} /> : null}
+                {f.airportFee ? <Line label="Airport fee" value={f.airportFee} /> : null}
+                {f.surgeMultiplier > 1 ? <Line label={`Surge x${f.surgeMultiplier}`} value={0} /> : null}
+                {f.platformFee ? <Line label="Platform fee" value={f.platformFee} /> : null}
+                {f.promoDiscount ? <Line label={`Promo ${f.promoCode}`} value={f.promoDiscount} minus /> : null}
+                <Line label="Total fare" value={f.totalFare ?? b.fare} bold />
+                {(f.commission || f.driverEarnings) ? (
+                  <div className="mt-3 rounded-lg bg-gray-50 p-3">
+                    <Line label="InstaaWheels commission" value={f.commission} />
+                    <Line label="Driver earnings" value={f.driverEarnings} />
+                  </div>
+                ) : null}
+              </Section>
 
-          <Section icon={CreditCard} title="Payment">
-            <div className="grid grid-cols-2 gap-3">
-              <KV label="Method"><PaymentBadge method={b.paymentOption} /></KV>
-              <KV label="Status"><span className="capitalize">{b.paymentStatus || '--'}</span></KV>
-            </div>
-            {b.paymentDetail ? <p className="mt-2 text-[12px] text-gray-500">{b.paymentDetail}</p> : null}
-            {b.paymentReference ? <p className="mt-1 break-all font-mono text-[11px] text-gray-400">Ref. {b.paymentReference}</p> : null}
-          </Section>
+              <Section icon={CreditCard} title="Payment">
+                <div className="grid grid-cols-2 gap-3">
+                  <KV label="Method"><PaymentBadge method={b.paymentOption} /></KV>
+                  <KV label="Status"><span className="capitalize">{b.paymentStatus || '--'}</span></KV>
+                </div>
+                {b.paymentDetail ? <p className="mt-2 text-[12px] text-gray-500">{b.paymentDetail}</p> : null}
+                {b.paymentReference ? <p className="mt-1 break-all font-mono text-[11px] text-gray-400">Ref. {b.paymentReference}</p> : null}
+              </Section>
+            </>
+          ) : null}
 
           {steps.length ? (
             <Section icon={Clock} title="Timeline">

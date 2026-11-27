@@ -141,6 +141,7 @@ const PoolingBookings = () => {
               <option value="cancelled">Cancelled</option>
             </select>
           </div>
+          {/* HIDDEN (pooling payment): Payment filter dropdown
           <select
             value={paymentFilter}
             onChange={(e) => setPaymentFilter(e.target.value)}
@@ -151,6 +152,7 @@ const PoolingBookings = () => {
             <option value="pending">Pending</option>
             <option value="refunded">Refunded</option>
           </select>
+          */}
         </div>
       </div>
 

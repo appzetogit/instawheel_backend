@@ -75,9 +75,10 @@ const CustomizationSettings = () => {
         </div>
 
         <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
-          <SectionHeader title="Bus Service" />
+          <SectionHeader title="Customization Modules" />
 
           <div className="p-6">
+            {/* HIDDEN (bus flow): Bus Service toggle and management card
             <div className="rounded-xl border border-gray-200 bg-gray-50/50 p-6 flex flex-col sm:flex-row items-start justify-between gap-6">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-yellow-50 text-yellow-600 border border-yellow-100 flex items-center justify-center shadow-sm shrink-0">
@@ -114,17 +115,13 @@ const CustomizationSettings = () => {
                 />
               </button>
             </div>
+            */}
 
-            <div className="mt-8 flex justify-end pt-6 border-t border-gray-100">
-              <button
-                type="button"
-                onClick={handleSave}
-                disabled={saving}
-                className="bg-yellow-400 text-black px-8 py-2.5 rounded-lg text-sm font-semibold shadow-sm flex items-center justify-center gap-2 hover:bg-yellow-500 active:scale-95 transition-all disabled:opacity-50"
-              >
-                {saving ? <Loader2 size={18} className="animate-spin" /> : <Save size={18} />}
-                {saving ? 'Saving Changes...' : 'Save Bus Service Setting'}
-              </button>
+            <div className="rounded-xl border border-dashed border-gray-200 bg-gray-50/50 p-8 text-center">
+              <p className="text-sm font-bold text-gray-700">No Customization Settings Active</p>
+              <p className="mt-1 text-xs text-gray-500">
+                All optional modules are currently configured to standard defaults.
+              </p>
             </div>
           </div>
         </div>
