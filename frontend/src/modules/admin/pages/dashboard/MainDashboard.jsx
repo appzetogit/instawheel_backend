@@ -326,7 +326,7 @@ const MainDashboard = () => {
               <>
                 <div className="relative pt-2">
                   <svg viewBox={`0 0 ${chartWidth} ${chartHeight}`} className="w-full overflow-visible">
-                    <path d={areaPath} fill="rgba(255, 196, 0, 0.05)" />
+                    <path d={areaPath} fill="rgba(2, 193, 1, 0.05)" />
                     <path d={linePath} fill="none" stroke="#FFC400" strokeWidth="2.5" />
                     {revenuePoints.map((pt, idx) => (
                       <circle

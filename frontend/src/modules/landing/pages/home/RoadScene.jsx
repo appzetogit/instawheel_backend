@@ -19,10 +19,10 @@ function TopCar() {
   // Top-down car facing +x, centred on 0,0 so animateMotion rotates it in place.
   return (
     <g>
-      <rect x="-19" y="-11" width="38" height="22" rx="7" fill="#F25A0D" />
+      <rect x="-19" y="-11" width="38" height="22" rx="7" fill="#009E14" />
       <path d="M2-9Q9-9 11-4L11 4Q9 9 2 9Z" fill="#2A2C33" />
       <path d="M-10-8Q-14-6-14 0Q-14 6-10 8L-8 8L-8-8Z" fill="#2A2C33" opacity="0.85" />
-      <rect x="-7" y="-8" width="8" height="16" rx="2.5" fill="#FF9A3C" />
+      <rect x="-7" y="-8" width="8" height="16" rx="2.5" fill="#06F804" />
       <rect x="16" y="-9" width="3" height="4" rx="1" fill="#FFE3A3" />
       <rect x="16" y="5" width="3" height="4" rx="1" fill="#FFE3A3" />
     </g>
@@ -45,7 +45,7 @@ export default function RoadScene() {
               <stop offset="1" stopColor="#FFB27A" stopOpacity="0" />
             </radialGradient>
           </defs>
-          <rect width="520" height="520" fill="#FFF8F2" />
+          <rect width="520" height="520" fill="#F4FBF4" />
           <rect width="520" height="520" fill="url(#ph-grid)" />
           <rect width="520" height="520" fill="url(#ph-glow)" />
 
@@ -107,7 +107,7 @@ export default function RoadScene() {
 
           {/* destination pin */}
           <g transform="translate(476 118)">
-            {!still && <ellipse className="ph-pin-pulse" rx="26" ry="9" fill="none" stroke="#FF6A13" strokeWidth="2" />}
+            {!still && <ellipse className="ph-pin-pulse" rx="26" ry="9" fill="none" stroke="#02C101" strokeWidth="2" />}
             <ellipse rx="12" ry="4.5" fill="#000" opacity="0.15" />
             <Motion.g
               initial={still ? false : { y: -60, opacity: 0 }}
@@ -116,7 +116,7 @@ export default function RoadScene() {
             >
               <path
                 d="M0 0C-4-12-22-22-22-40A22 22 0 0 1 22-40C22-22 4-12 0 0Z"
-                fill="#FF6A13"
+                fill="#02C101"
               />
               <circle cy="-40" r="8.5" fill="#fff" />
             </Motion.g>
@@ -124,8 +124,8 @@ export default function RoadScene() {
 
           {/* pickup dot */}
           <g transform="translate(70 470)">
-            <circle r="13" fill="#FF6A13" opacity="0.2" className={still ? '' : 'ph-dot-pulse'} />
-            <circle r="7" fill="#fff" stroke="#FF6A13" strokeWidth="4" />
+            <circle r="13" fill="#02C101" opacity="0.2" className={still ? '' : 'ph-dot-pulse'} />
+            <circle r="7" fill="#fff" stroke="#02C101" strokeWidth="4" />
           </g>
         </svg>
 

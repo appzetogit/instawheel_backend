@@ -533,7 +533,7 @@ const BikeRentalHome = () => {
                   className={`shrink-0 rounded-[18px] border px-3.5 py-2.5 transition-all ${
                     isActive
                       ? isDark
-                        ? 'border-[#FFC400] bg-[#FFC400] text-[#05070D] shadow-[0_10px_24px_rgba(255,196,0,0.2)]'
+                        ? 'border-[#FFC400] bg-[#FFC400] text-[#05070D] shadow-[0_10px_24px_rgba(2, 193, 1,0.2)]'
                         : 'border-slate-900 bg-slate-900 text-white shadow-[0_10px_24px_rgba(15,23,42,0.16)]'
                       : isDark
                         ? 'border-zinc-800 bg-[#0f1b2d] text-zinc-300 shadow-sm'

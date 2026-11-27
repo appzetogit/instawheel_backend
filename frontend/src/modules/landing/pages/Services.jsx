@@ -83,7 +83,7 @@ const Services = ({ openBookingModal }) => {
                   <div className="s-card-content">
                     <div className="s-title-row">
                       <div className="s-icon-bg">
-                        <IconComp size={22} color="#FF6A13" />
+                        <IconComp size={22} color="#02C101" />
                       </div>
                       <h3 className="s-title">{s.title}</h3>
                     </div>
@@ -96,7 +96,7 @@ const Services = ({ openBookingModal }) => {
                       <div className="s-features-list">
                         {s.features.map((feat, i) => (
                           <div key={i} className="sf-item">
-                            <CheckCircle size={15} color="#FF6A13" />
+                            <CheckCircle size={15} color="#02C101" />
                             <span>{feat}</span>
                           </div>
                         ))}
@@ -142,7 +142,7 @@ const Services = ({ openBookingModal }) => {
           .service-detail-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-lg);
-            border-color: #FF6A13;
+            border-color: #02C101;
           }
 
           .s-card-img-box {
@@ -163,12 +163,12 @@ const Services = ({ openBookingModal }) => {
             right: 14px;
             background: rgba(31, 33, 38, 0.85);
             backdrop-filter: blur(6px);
-            color: #FF6A13;
+            color: #02C101;
             font-size: 11.5px;
             font-weight: 600;
             padding: 4px 12px;
             border-radius: 20px;
-            border: 1px solid rgba(255, 106, 19, 0.4);
+            border: 1px solid rgba(2, 193, 1, 0.4);
           }
 
           .s-card-content {
@@ -188,7 +188,7 @@ const Services = ({ openBookingModal }) => {
           .s-icon-bg {
             width: 40px;
             height: 40px;
-            background: rgba(255, 106, 19, 0.1);
+            background: rgba(2, 193, 1, 0.1);
             border-radius: 10px;
             display: flex;
             align-items: center;

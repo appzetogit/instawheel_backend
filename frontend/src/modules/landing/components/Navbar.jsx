@@ -49,7 +49,7 @@ export default function Navbar({ activeTab, setActiveTab, openBookingModal }) {
     <header className={`pn ${scrolled ? 'is-scrolled' : ''} ${open ? 'is-open' : ''}`}>
       <div className="pn-inner">
         <button type="button" className="pn-brand" onClick={() => go('home')} aria-label={`${wordmark} home`}>
-          <img src={brand.logo} alt="" className="pn-logo" />
+          <img src={brand.logo || '/instaawheels-mark.png'} alt="" className="pn-logo" />
           <span className="pn-word">
             <strong>{wordmark}</strong>
             {brand.tagline && <small>{brand.tagline}</small>}

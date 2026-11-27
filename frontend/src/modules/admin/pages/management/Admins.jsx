@@ -834,7 +834,7 @@ const Admins = () => {
                     ))}
 
                     {/* Shimmer Area Fill */}
-                    <path d={areaPath} fill="rgba(255, 196, 0, 0.05)" />
+                    <path d={areaPath} fill="rgba(2, 193, 1, 0.05)" />
                     {/* Area Outline */}
                     <path d={linePath} fill="none" stroke="#FFC400" strokeWidth="2.5" />
 

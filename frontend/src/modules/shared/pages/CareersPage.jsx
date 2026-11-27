@@ -263,7 +263,7 @@ const CareersPage = () => {
 
       {/* Hero Section */}
       <div className="relative bg-[#1a1a1a] text-white pt-36 pb-24 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,179,0,0.12),transparent_45%)]"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(2, 193, 1,0.12),transparent_45%)]"></div>
         <div className="absolute inset-0 opacity-[0.02] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:24px_24px]"></div>
         <div className="relative max-w-4xl mx-auto text-center z-10">
           <span className="text-[#FFB300] text-sm font-black uppercase tracking-[0.2em] mb-4 block">

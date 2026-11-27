@@ -15,16 +15,16 @@
   /* one step deeper than navy-dark, for the recessed bands */
   --navy-deep: #18191D;
 
-  --primary-teal: #FF6A13;
-  --teal-hover: #E5530A;
-  --teal-light: rgba(255, 106, 19, 0.12);
-  --teal-bright: #FF9A3C;
-  --teal-ink: #B84300;
+  --primary-teal: #02C101;
+  --teal-hover: #009E14;
+  --teal-light: rgba(2, 193, 1, 0.12);
+  --teal-bright: #06F804;
+  --teal-ink: #007A0E;
 
   /* InstaaWheels palette: the variable names above are historical (navy/teal); their
      values are the logo's charcoal and orange. Warm off-white for large fields
      so the orange does not glare against pure white. */
-  --bg-light: #FFF8F2;
+  --bg-light: #F4FBF4;
   --bg-white: #FFFCF9;
   --bg-raised: #FFFFFF;
 
@@ -34,7 +34,7 @@
   --text-light: #A3A6AE;
   --text-white: #FFFFFF;
 
-  --border-light: #F0E4DA;
+  --border-light: #DCF2DC;
   --border-dark: #3B3E47;
 
   --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -45,7 +45,7 @@
   --shadow-sm: 0 1px 2px rgba(11, 18, 32, 0.04), 0 4px 12px rgba(11, 18, 32, 0.045);
   --shadow-md: 0 2px 4px rgba(11, 18, 32, 0.045), 0 12px 28px rgba(11, 18, 32, 0.07);
   --shadow-lg: 0 4px 8px rgba(11, 18, 32, 0.05), 0 24px 54px rgba(11, 18, 32, 0.1);
-  --shadow-teal: 0 6px 14px rgba(255, 106, 19, 0.28), 0 18px 40px rgba(255, 106, 19, 0.18);
+  --shadow-teal: 0 6px 14px rgba(2, 193, 1, 0.28), 0 18px 40px rgba(2, 193, 1, 0.18);
   --hairline: inset 0 1px 0 rgba(255, 255, 255, 0.85);
   --hairline-dark: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
@@ -147,7 +147,7 @@
     background: #2A2C33;
   }
   ::-webkit-scrollbar-thumb {
-    background: #FF6A13;
+    background: #02C101;
     border-radius: 4px;
   }
 
@@ -270,7 +270,7 @@
     overflow: hidden;
     background-color: var(--navy-deep);
     background-image:
-      radial-gradient(110% 130% at 12% -10%, rgba(255, 106, 19, 0.22) 0%, transparent 52%),
+      radial-gradient(110% 130% at 12% -10%, rgba(2, 193, 1, 0.22) 0%, transparent 52%),
       radial-gradient(90% 120% at 88% 0%, rgba(43, 92, 168, 0.28) 0%, transparent 55%),
       linear-gradient(160deg, #08182F 0%, #2A2C33 55%, #071328 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -289,7 +289,7 @@
 
   .page-hero .page-tag {
     backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 106, 19, 0.3);
+    border: 1px solid rgba(2, 193, 1, 0.3);
   }
 
   .page-tag {
@@ -411,7 +411,7 @@
   }
 
   .btn-teal {
-    background-image: linear-gradient(180deg, #FF8A2B 0%, var(--primary-teal) 48%, #E5530A 100%);
+    background-image: linear-gradient(180deg, #06F804 0%, var(--primary-teal) 48%, #009E14 100%);
     color: var(--text-white);
     box-shadow: var(--shadow-teal), inset 0 1px 0 rgba(255, 255, 255, 0.34),
       inset 0 -1px 0 rgba(0, 0, 0, 0.12);
@@ -419,7 +419,7 @@
 
   .btn-teal:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 106, 19, 0.34), 0 26px 52px rgba(255, 106, 19, 0.22),
+    box-shadow: 0 10px 20px rgba(2, 193, 1, 0.34), 0 26px 52px rgba(2, 193, 1, 0.22),
       inset 0 1px 0 rgba(255, 255, 255, 0.4);
   }
 
@@ -433,7 +433,7 @@
 
   .btn-outline-light:hover {
     background: rgba(255, 255, 255, 0.13);
-    border-color: rgba(255, 106, 19, 0.65);
+    border-color: rgba(2, 193, 1, 0.65);
     color: #FFFFFF;
     transform: translateY(-2px);
   }
@@ -492,7 +492,7 @@
   .input-group input:focus,
   .input-group select:focus {
     border-color: var(--primary-teal);
-    box-shadow: 0 0 0 2px rgba(255, 106, 19, 0.2);
+    box-shadow: 0 0 0 2px rgba(2, 193, 1, 0.2);
   }
 
   .input-group select option {
@@ -805,7 +805,7 @@
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    background: rgba(255, 106, 19, 0.15);
+    background: rgba(2, 193, 1, 0.15);
     color: var(--primary-teal);
     font-weight: 700;
     letter-spacing: 0.5px;

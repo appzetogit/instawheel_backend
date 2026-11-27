@@ -3,20 +3,20 @@
    of it can reach the other landing pages or the taxi app. */
 
 .palki-landing .ph-root {
-  --ph-orange: #FF6A13;
-  --ph-orange-2: #FF8A2B;
-  --ph-orange-deep: #E5530A;
-  --ph-orange-soft: #FFF1E7;
+  --ph-orange: #02C101;
+  --ph-orange-2: #06F804;
+  --ph-orange-deep: #009E14;
+  --ph-orange-soft: #E8FBE9;
   --ph-ink: #2A2C33;
   --ph-ink-2: #3B3E47;
   --ph-ink-soft: #4A4D57;
   --ph-muted: #6B6F7A;
   --ph-paper: #FFFFFF;
-  --ph-warm: #FFF8F2;
-  --ph-line: #F0E4DA;
-  --ph-grad: linear-gradient(135deg, #FF8A2B 0%, #FF6A13 45%, #E5530A 100%);
+  --ph-warm: #F4FBF4;
+  --ph-line: #DCF2DC;
+  --ph-grad: linear-gradient(135deg, #06F804 0%, #02C101 45%, #009E14 100%);
   --ph-shadow: 0 2px 6px rgba(42, 44, 51, 0.05), 0 18px 44px rgba(42, 44, 51, 0.09);
-  --ph-shadow-orange: 0 8px 18px rgba(255, 106, 19, 0.28), 0 22px 44px rgba(255, 106, 19, 0.18);
+  --ph-shadow-orange: 0 8px 18px rgba(2, 193, 1, 0.28), 0 22px 44px rgba(2, 193, 1, 0.18);
   --ph-radius: 22px;
   --ph-ease: cubic-bezier(0.16, 0.84, 0.28, 1);
 
@@ -140,7 +140,7 @@
 .palki-landing .ph-root button:focus-visible,
 .palki-landing .ph-root a:focus-visible,
 .palki-landing .ph-root input:focus-visible {
-  outline: 3px solid rgba(255, 106, 19, 0.45);
+  outline: 3px solid rgba(2, 193, 1, 0.45);
   outline-offset: 2px;
 }
 .palki-landing .ph-root .ph-btn-primary {
@@ -632,7 +632,7 @@
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 106, 19, 0.35), transparent 65%);
+  background: radial-gradient(circle, rgba(2, 193, 1, 0.35), transparent 65%);
   z-index: -1;
 }
 .palki-landing .ph-root .ph-why-grid {
@@ -659,7 +659,7 @@
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: rgba(255, 106, 19, 0.16);
+  background: rgba(2, 193, 1, 0.16);
   color: var(--ph-orange-2);
 }
 .palki-landing .ph-root .ph-why-card h3 { margin: 18px 0 8px; font-size: 1.15rem; color: #fff; }
@@ -782,7 +782,7 @@
   width: 380px;
   height: 380px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 106, 19, 0.38), transparent 65%);
+  background: radial-gradient(circle, rgba(2, 193, 1, 0.38), transparent 65%);
 }
 .palki-landing .ph-root .ph-drive-main .ph-h2 { position: relative; z-index: 1; color: #fff; max-width: 520px; }
 .palki-landing .ph-root .ph-drive-main .ph-sub { position: relative; z-index: 1; color: rgba(255, 255, 255, 0.68); }

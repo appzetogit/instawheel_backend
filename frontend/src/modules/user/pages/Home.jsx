@@ -1943,7 +1943,7 @@ const Home = () => {
           {/* Desktop Branding Footer */}
           <div className="hidden lg:block pt-6">
             <div className="flex flex-col items-start px-2 py-2">
-              <div className="text-[48px] font-[900] tracking-[-0.03em] text-[#FFC400] drop-shadow-[0_10px_30px_rgba(255,196,0,0.4)] leading-none uppercase">
+              <div className="text-[48px] font-[900] tracking-[-0.03em] text-[#02C101] drop-shadow-[0_10px_30px_rgba(2,193,1,0.4)] leading-none uppercase">
                 InstaaWheels
               </div>
               <div className="mt-2 text-[14px] font-sans italic font-bold tracking-[0.04em] text-slate-800 dark:text-slate-200">

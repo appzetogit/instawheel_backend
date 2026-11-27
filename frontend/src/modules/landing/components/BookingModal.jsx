@@ -104,7 +104,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
             </div>
 
             <div className="input-group">
-              <label><MapPin size={16} color="#FF6A13" /> Pickup Location</label>
+              <label><MapPin size={16} color="#02C101" /> Pickup Location</label>
               <input 
                 type="text" 
                 value={pickup} 
@@ -114,7 +114,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
             </div>
 
             <div className="input-group">
-              <label><MapPin size={16} color="#FF6A13" /> Drop Location</label>
+              <label><MapPin size={16} color="#02C101" /> Drop Location</label>
               <input 
                 type="text" 
                 value={drop} 
@@ -125,7 +125,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
 
             <div className="input-row">
               <div className="input-group">
-                <label><Calendar size={16} color="#FF6A13" /> Date & Time</label>
+                <label><Calendar size={16} color="#02C101" /> Date & Time</label>
                 <input 
                   type="date" 
                   value={date} 
@@ -134,7 +134,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
               </div>
 
               <div className="input-group">
-                <label><User size={16} color="#FF6A13" /> Passengers</label>
+                <label><User size={16} color="#02C101" /> Passengers</label>
                 <select value={passengers} onChange={(e) => setPassengers(e.target.value)}>
                   <option value="1">1 Passenger</option>
                   <option value="2">2 Passengers</option>
@@ -145,7 +145,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
             </div>
 
             <div className="vehicle-selector">
-              <label className="section-sublabel"><Car size={16} color="#FF6A13" /> Select Preferred Vehicle</label>
+              <label className="section-sublabel"><Car size={16} color="#02C101" /> Select Preferred Vehicle</label>
               <div className="vehicle-grid">
                 {vehicleOptions.map((v) => (
                   <div 
@@ -220,7 +220,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
             )}
 
             <div className="security-notice">
-              <Shield size={16} color="#FF6A13" />
+              <Shield size={16} color="#02C101" />
               <span>Zero cancellation fee • Pay directly to driver or via UPI after trip</span>
             </div>
 
@@ -243,7 +243,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
         {step === 3 && (
           <div className="modal-body text-center py-6">
             <div className="success-icon-box">
-              <CheckCircle2 size={56} color="#FF6A13" />
+              <CheckCircle2 size={56} color="#02C101" />
             </div>
             <h4 className="confirm-title">Cab Booked Successfully!</h4>
             <p className="confirm-text">
@@ -280,7 +280,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
 
           .modal-card {
             background-color: #33363E;
-            border: 1px solid rgba(255, 106, 19, 0.3);
+            border: 1px solid rgba(2, 193, 1, 0.3);
             border-radius: 16px;
             width: 100%;
             max-width: 540px;
@@ -315,8 +315,8 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
             display: inline-block;
             font-size: 11px;
             font-weight: 600;
-            color: #FF6A13;
-            background: rgba(255, 106, 19, 0.12);
+            color: #02C101;
+            background: rgba(2, 193, 1, 0.12);
             padding: 2px 8px;
             border-radius: 4px;
             margin-bottom: 4px;
@@ -370,7 +370,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
           }
 
           .tab-pill.active {
-            background-color: #FF6A13;
+            background-color: #02C101;
             color: #FFFFFF;
             font-weight: 600;
           }
@@ -407,12 +407,12 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
           }
 
           .vehicle-card-item:hover {
-            border-color: rgba(255, 106, 19, 0.5);
+            border-color: rgba(2, 193, 1, 0.5);
           }
 
           .vehicle-card-item.selected {
-            border-color: #FF6A13;
-            background: rgba(255, 106, 19, 0.12);
+            border-color: #02C101;
+            background: rgba(2, 193, 1, 0.12);
           }
 
           .v-item-header {
@@ -428,7 +428,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
           }
 
           .v-rate {
-            color: #FF6A13;
+            color: #02C101;
           }
 
           .v-item-sub {
@@ -465,11 +465,11 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
           }
 
           .sum-val.highlight {
-            color: #FF6A13;
+            color: #02C101;
           }
 
           .sum-val.fare {
-            color: #FF6A13;
+            color: #02C101;
             font-weight: 700;
             font-size: 14px;
           }
@@ -489,7 +489,7 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
             gap: 8px;
             font-size: 12px;
             color: #94A3B8;
-            background: rgba(255, 106, 19, 0.06);
+            background: rgba(2, 193, 1, 0.06);
             padding: 8px 12px;
             border-radius: 6px;
           }
@@ -522,8 +522,8 @@ const BookingModal = ({ isOpen, onClose, selectedVehicle = null }) => {
           }
 
           .driver-assign-card {
-            background: rgba(255, 106, 19, 0.08);
-            border: 1px solid rgba(255, 106, 19, 0.2);
+            background: rgba(2, 193, 1, 0.08);
+            border: 1px solid rgba(2, 193, 1, 0.2);
             border-radius: 10px;
             padding: 14px;
             margin-top: 14px;

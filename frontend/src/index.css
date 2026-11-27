@@ -29,7 +29,7 @@ body {
 }
 
 @theme {
-  --color-primary: #E85D04;
+  --color-primary: #02C101;
   --color-secondary: #F48C06;
   --font-sans: 'Outfit', system-ui, sans-serif;
   --font-display: 'Outfit', sans-serif;
@@ -68,7 +68,7 @@ body {
     --color-secondary: #334155;    /* Driver Brand Secondary (Lighter Slate) */
     
     /* Dedicated Variable-Based Mapping */
-    --driver-accent: #FFD700;
+    --driver-accent: #02C101;
     --driver-bg-soft: #F8F9FA;
     --driver-card-white: #FFFFFF;
     
@@ -543,12 +543,12 @@ body {
   font-weight: 800;
   margin-top: 40px;
   transition: all 0.25s ease;
-  box-shadow: 0 8px 24px rgba(255, 196, 0, 0.2) !important;
+  box-shadow: 0 8px 24px rgba(2, 193, 1, 0.2) !important;
 }
 
 .login-button:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(255, 196, 0, 0.35) !important;
+  box-shadow: 0 12px 28px rgba(2, 193, 1, 0.35) !important;
   background: #ffc400 !important;
 }
 
@@ -599,7 +599,7 @@ body {
 .otp-input-field:focus {
   border-color: var(--user-accent) !important;
   background-color: var(--user-card-bg) !important;
-  box-shadow: 0 0 12px rgba(255, 196, 0, 0.2) !important;
+  box-shadow: 0 0 12px rgba(2, 193, 1, 0.2) !important;
 }
 
 /* Theme Toggle Button Style */
@@ -658,9 +658,9 @@ body {
   --user-text-primary: #FFFFFF;
   --user-text-secondary: #CBD5E1;
   --user-border: rgba(255,255,255,0.10);
-  --user-accent: #FFC400;
+  --user-accent: #02C101;
   --user-profile-header-bg: #090d16;
-  --user-profile-header-gradient: linear-gradient(180deg, rgba(255, 196, 0, 0.06) 0%, rgba(15, 23, 42, 1) 100%);
+  --user-profile-header-gradient: linear-gradient(180deg, rgba(2, 193, 1, 0.06) 0%, rgba(15, 23, 42, 1) 100%);
 }
 
 .user-app-theme.light,
@@ -672,7 +672,7 @@ body {
   --user-text-primary: #0B1220;
   --user-text-secondary: #64748B;
   --user-border: rgba(15,23,42,0.10);
-  --user-accent: #FFC400;
+  --user-accent: #02C101;
   --user-profile-header-bg: #FFFFFF;
   --user-profile-header-gradient: linear-gradient(180deg, rgba(238, 242, 255, 0.5) 0%, rgba(248, 250, 252, 0) 100%);
 }
@@ -686,9 +686,9 @@ body {
   --user-text-primary: #FFFFFF;
   --user-text-secondary: #CBD5E1;
   --user-border: rgba(255,255,255,0.12);
-  --user-accent: #FFC400;
+  --user-accent: #02C101;
   --user-profile-header-bg: #090d16;
-  --user-profile-header-gradient: linear-gradient(180deg, rgba(255, 196, 0, 0.06) 0%, rgba(5, 7, 13, 1) 100%);
+  --user-profile-header-gradient: linear-gradient(180deg, rgba(2, 193, 1, 0.06) 0%, rgba(5, 7, 13, 1) 100%);
 }
 
 /* Theme variable mapping utilities */
@@ -728,7 +728,7 @@ body {
 .user-app-theme.dark .shortcut-image-bg,
 .user-app-theme .dark .shortcut-image-bg,
 .user-app-theme[class*="dark"] .shortcut-image-bg {
-  background: linear-gradient(135deg, rgba(255,196,0,0.18), rgba(255,255,255,0.08));
+  background: linear-gradient(135deg, rgba(2, 193, 1,0.18), rgba(255,255,255,0.08));
 }
 
 .user-bottom-nav {

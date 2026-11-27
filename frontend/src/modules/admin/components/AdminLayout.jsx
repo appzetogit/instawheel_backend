@@ -290,7 +290,7 @@ const SidebarItem = ({ icon, label, path, isCollapsed, sidebarTextColor, unreadC
     to={path}
     end
     className={({ isActive }) =>
-      `group relative flex items-center gap-3.5 px-4 py-2 rounded-xl transition-all duration-200 ${isActive ? 'text-[#05070D] bg-[#FFC400]' : 'hover:bg-amber-100/50 hover:text-slate-900'
+      `group relative flex items-center gap-3.5 px-4 py-2 rounded-xl transition-all duration-200 ${isActive ? 'text-[#05070D] bg-[#02C101]' : 'hover:bg-emerald-100/50 hover:text-slate-900'
       }`
     }
     style={({ isActive }) => ({
@@ -416,7 +416,7 @@ const SidebarGroup = ({
                     to={item.path}
                     end
                     className={({ isActive: childActive }) =>
-                      `group flex items-center gap-3 px-3 py-1.5 rounded-lg text-[12.5px] transition-all duration-200 ${childActive ? 'text-[#05070D] bg-[#FFC400]' : 'hover:text-slate-900 hover:bg-amber-100/50'
+                      `group flex items-center gap-3 px-3 py-1.5 rounded-lg text-[12.5px] transition-all duration-200 ${childActive ? 'text-[#05070D] bg-[#02C101]' : 'hover:text-slate-900 hover:bg-emerald-100/50'
                       }`
                     }
                     style={({ isActive: childActive }) => ({
@@ -514,12 +514,12 @@ const NestedGroup = ({
                   to={item.path}
                   end
                   className={({ isActive: childActive }) =>
-                    `group flex items-center gap-3 px-3 py-1.5 rounded-lg text-[12px] transition-all duration-200 ${childActive ? 'text-[#05070D]' : 'hover:text-slate-900 hover:bg-amber-100/50'
+                    `group flex items-center gap-3 px-3 py-1.5 rounded-lg text-[12px] transition-all duration-200 ${childActive ? 'text-[#05070D]' : 'hover:text-slate-900 hover:bg-emerald-100/50'
                     }`
                   }
                   style={({ isActive: childActive }) => ({
                     color: childActive ? '#05070D' : sidebarTextColor,
-                    backgroundColor: childActive ? '#FFC400' : 'transparent',
+                    backgroundColor: childActive ? '#02C101' : 'transparent',
                   })}
                 >
                   {({ isActive: childActive }) => (
@@ -1301,11 +1301,11 @@ const AdminLayout = () => {
           <div className="group/sidebar-head relative mb-2 flex h-14 items-center border-b border-amber-200/50 px-5">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-200 bg-amber-100 p-1.5 transition-all duration-300 group-hover/sidebar-head:scale-105 shadow-sm">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-200 bg-emerald-100 p-1.5 transition-all duration-300 group-hover/sidebar-head:scale-105 shadow-sm">
                   {settings.general?.logo || settings.customization?.logo ? (
                     <img src={settings.general?.logo || settings.customization?.logo} alt={appName} className="h-full w-full object-contain" />
                   ) : (
-                    <Zap size={20} className="text-amber-600 fill-amber-600" />
+                    <img src="/instaawheels-logo.png" alt={appName} className="h-full w-full object-contain" />
                   )}
                 </div>
                 <div className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-indigo-900" />

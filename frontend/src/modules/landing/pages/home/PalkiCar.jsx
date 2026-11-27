@@ -42,7 +42,7 @@ const glass = (id) => `url(#${id}-glass)`;
 const paint = (id) => `url(#${id}-paint)`;
 
 function Defs({ id, tone }) {
-  const [from, to] = tone === 'ink' ? ['#4A4D57', '#2A2C33'] : ['#FF9A3C', '#F25A0D'];
+  const [from, to] = tone === 'ink' ? ['#4A4D57', '#2A2C33'] : ['#06F804', '#009E14'];
   return (
     <defs>
       <linearGradient id={`${id}-paint`} x1="0" y1="0" x2="0" y2="1">
@@ -165,7 +165,7 @@ const VARIANTS = {
         <g className="pc-body">
           {cargo && (
             <g>
-              <rect x="18" y="22" width="34" height="30" rx="4" fill="#E5530A" />
+              <rect x="18" y="22" width="34" height="30" rx="4" fill="#009E14" />
               <path d="M18 34H52" stroke="#fff" strokeOpacity="0.55" strokeWidth="3" />
               <rect x="30" y="22" width="10" height="30" fill="#fff" opacity="0.18" />
             </g>

@@ -110,11 +110,9 @@ const AdminLogin = () => {
               aria-label={`${appName} home`}
             >
               {appLogo ? (
-                <img src={appLogo} alt={appName} className="h-11 w-auto object-contain" />
+                <img src={appLogo} alt={appName} className="h-12 w-auto object-contain" />
               ) : (
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 text-white">
-                  <ShieldCheck size={22} />
-                </span>
+                <img src="/instaawheels-logo.png" alt={appName} className="h-12 w-auto object-contain rounded-xl shadow-md" />
               )}
             </button>
             <h1 className="text-[22px] font-semibold text-slate-900">

@@ -71,7 +71,7 @@
   border-radius: 26px;
   color: #ffffff;
   background:
-    radial-gradient(120% 90% at 100% 0%, rgba(255, 196, 0, 0.22) 0%, transparent 55%),
+    radial-gradient(120% 90% at 100% 0%, rgba(2, 193, 1, 0.22) 0%, transparent 55%),
     linear-gradient(140deg, var(--zb-hero-a) 0%, var(--zb-hero-b) 100%);
   box-shadow: 0 22px 44px -24px rgba(5, 14, 32, 0.8);
 }

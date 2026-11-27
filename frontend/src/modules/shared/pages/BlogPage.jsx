@@ -145,7 +145,7 @@ const BlogPage = () => {
 
       {/* Hero Section */}
       <div className="relative overflow-hidden bg-gradient-to-b from-zinc-900 to-[#0d0d0d] pt-32 pb-16 px-6 border-b border-zinc-900">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,179,0,0.08),transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(2, 193, 1,0.08),transparent_50%)] pointer-events-none" />
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="inline-block bg-[#FFB300]/10 text-[#FFB300] border border-[#FFB300]/25 text-[10px] font-bold uppercase px-3 py-1 rounded-full tracking-widest mb-6">
             Publications

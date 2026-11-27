@@ -174,8 +174,8 @@ const SplashScreen = () => {
       {/* Animated background canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full block pointer-events-none z-0" />
 
-      {/* Subtle yellow glow behind logo/text */}
-      <div className="absolute w-[280px] h-[280px] rounded-full bg-[#FFC400]/10 blur-[80px] pointer-events-none z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+      {/* Subtle green glow behind logo/text */}
+      <div className="absolute w-[280px] h-[280px] rounded-full bg-[#02C101]/15 blur-[80px] pointer-events-none z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
 
       {/* Centered Content */}
       <div className="flex flex-col items-center justify-center text-center z-20 relative flex-1">
@@ -185,13 +185,20 @@ const SplashScreen = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="flex flex-col items-center"
         >
+          {/* Logo image */}
+          <img
+            src="/instaawheels-logo.png"
+            alt="InstaaWheels"
+            className="w-28 h-28 mb-4 rounded-3xl shadow-2xl shadow-[#02C101]/25 object-contain"
+          />
+
           {/* Clean text logo */}
           <h1 className="text-[32px] font-[900] tracking-wider text-white mb-2 leading-none uppercase">
-            InstaaWheels
+            Instaa<span className="text-[#02C101]">Wheels</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-[11px] font-semibold tracking-[0.2em] text-[#FFC400] uppercase leading-none opacity-90">
+          <p className="text-[11px] font-semibold tracking-[0.2em] text-[#02C101] uppercase leading-none opacity-90">
             Your trusted journey partner
           </p>
         </motion.div>
@@ -203,17 +210,17 @@ const SplashScreen = () => {
           <motion.div
             animate={{ scale: [1, 1.4, 1], opacity: [0.3, 1, 0.3] }}
             transition={{ repeat: Infinity, duration: 1.2, delay: 0 }}
-            className="w-2 h-2 rounded-full bg-[#FFC400]"
+            className="w-2 h-2 rounded-full bg-[#02C101]"
           />
           <motion.div
             animate={{ scale: [1, 1.4, 1], opacity: [0.3, 1, 0.3] }}
             transition={{ repeat: Infinity, duration: 1.2, delay: 0.2 }}
-            className="w-2 h-2 rounded-full bg-[#FFC400]"
+            className="w-2 h-2 rounded-full bg-[#02C101]"
           />
           <motion.div
             animate={{ scale: [1, 1.4, 1], opacity: [0.3, 1, 0.3] }}
             transition={{ repeat: Infinity, duration: 1.2, delay: 0.4 }}
-            className="w-2 h-2 rounded-full bg-[#FFC400]"
+            className="w-2 h-2 rounded-full bg-[#02C101]"
           />
         </div>
       </div>

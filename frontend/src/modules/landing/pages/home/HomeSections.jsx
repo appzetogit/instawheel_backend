@@ -249,9 +249,9 @@ export function HowItWorks() {
             />
             <path d={STEP_ROAD} fill="none" stroke="#fff" strokeWidth="2.5" strokeDasharray="10 12" strokeOpacity="0.8" />
             <g ref={carRef}>
-              <rect x="-17" y="-10" width="34" height="20" rx="6" fill="#F25A0D" />
+              <rect x="-17" y="-10" width="34" height="20" rx="6" fill="#009E14" />
               <path d="M2-8Q8-8 10-3L10 3Q8 8 2 8Z" fill="#2A2C33" />
-              <rect x="-7" y="-7" width="7" height="14" rx="2" fill="#FF9A3C" />
+              <rect x="-7" y="-7" width="7" height="14" rx="2" fill="#06F804" />
             </g>
           </svg>
 
@@ -484,21 +484,21 @@ export function AppBand({ brand, onWeb }) {
           <div className="ph-phone" aria-hidden="true">
             <span className="ph-phone-notch" />
             <svg viewBox="0 0 240 340" className="ph-phone-map">
-              <rect width="240" height="340" fill="#FFF8F2" />
+              <rect width="240" height="340" fill="#F4FBF4" />
               {[[20, 30, 70, 50], [120, 20, 90, 40], [20, 120, 60, 60], [150, 130, 70, 60], [30, 230, 80, 40], [150, 240, 70, 70]].map(
                 ([x, y, w, h], i) => <rect key={i} x={x} y={y} width={w} height={h} rx="8" fill="#FBE7D8" />,
               )}
               <path d={PHONE_ROUTE} fill="none" stroke="#2A2C33" strokeWidth="12" strokeLinecap="round" />
-              <path d={PHONE_ROUTE} fill="none" stroke="#FF6A13" strokeWidth="4" strokeLinecap="round" strokeDasharray="2 9" />
+              <path d={PHONE_ROUTE} fill="none" stroke="#02C101" strokeWidth="4" strokeLinecap="round" strokeDasharray="2 9" />
               <g>
                 {!still && <animateMotion dur="6s" repeatCount="indefinite" rotate="auto" path={PHONE_ROUTE} />}
                 <g transform={still ? 'translate(130 200)' : undefined}>
-                  <rect x="-11" y="-7" width="22" height="14" rx="4" fill="#F25A0D" />
+                  <rect x="-11" y="-7" width="22" height="14" rx="4" fill="#009E14" />
                   <path d="M1-5Q6-5 7-2L7 2Q6 5 1 5Z" fill="#2A2C33" />
                 </g>
               </g>
               <g transform="translate(200 40)">
-                <path d="M0 0C-3-8-14-14-14-25A14 14 0 0 1 14-25C14-14 3-8 0 0Z" fill="#FF6A13" />
+                <path d="M0 0C-3-8-14-14-14-25A14 14 0 0 1 14-25C14-14 3-8 0 0Z" fill="#02C101" />
                 <circle cy="-25" r="5.5" fill="#fff" />
               </g>
             </svg>
