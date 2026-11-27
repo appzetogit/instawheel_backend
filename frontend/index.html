@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/palki-icon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/palki-icon-192.png" />
+    <link rel="apple-touch-icon" href="/palki-icon-180.png" />
+    <meta name="theme-color" content="#FF6A13" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PALKI",
+        "legalName": "Bhaarat Apna Private Limited",
+        "url": "https://palkicabs.com",
+        "logo": "https://palkicabs.com/palki-logo.png"
+      }
+    </script>
+    <title>PALKI - Your Taxi App</title>
+    <meta name="description" content="PALKI - book bikes, autos, cabs, parcels and intercity buses with upfront fares, live tracking and verified drivers. Powered by Bhaarat Apna Private Limited." />
+    <meta property="og:title" content="PALKI - Your Taxi App" />
+    <meta property="og:description" content="Book bikes, autos, cabs, parcels and intercity buses with upfront fares and live tracking." />
+    <meta property="og:image" content="https://palkicabs.com/palki-logo.jpg" />
+    <style>
+      body {
+        font-family: 'Outfit', sans-serif;
+      }
+    </style>
+    <script>
+      // Admin panel theme, applied before first paint so a dark-mode reload
+      // doesn't flash white. Kept in step with src/modules/admin/theme/adminThemeStore.js.
+      (function () {
+        try {
+          var pref = localStorage.getItem('adminThemePreference') || 'light';
+          var dark = pref === 'dark' || (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          document.documentElement.setAttribute('data-admin-theme', dark ? 'dark' : 'light');
+        } catch (e) {
+          document.documentElement.setAttribute('data-admin-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

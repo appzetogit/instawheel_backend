@@ -1,0 +1,24 @@
+node_modules/
+**/node_modules/
+dist/
+build/
+.DS_Store
+Thumbs.db
+Appzeto 24_flutter_shell/
+Appzeto 24_driver_webview/
+scratch/
+
+# Environment variables & secrets
+.env
+.env.*
+!.env.example
+firebase-service-account*.json
+
+# Logs
+*.log
+logs/
+
+# Private server access notes - never commit
+SERVER_NOTES.md
+config.bat
+
