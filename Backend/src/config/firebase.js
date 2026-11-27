@@ -24,32 +24,40 @@ const parseServiceAccountJson = (rawJson) => {
 const readServiceAccount = () => {
   if (env.firebase.serviceAccountJson) {
     try {
-      return parseServiceAccountJson(env.firebase.serviceAccountJson);
+      const parsed = parseServiceAccountJson(env.firebase.serviceAccountJson);
+      if (parsed) return parsed;
     } catch (error) {
       console.error('Firebase service account JSON parsing failed:', error.message);
-      return null;
     }
   }
 
-  if (!env.firebase.serviceAccountPath) {
-    return null;
+  const candidatePaths = [];
+  if (env.firebase.serviceAccountPath) {
+    candidatePaths.push(
+      path.isAbsolute(env.firebase.serviceAccountPath)
+        ? env.firebase.serviceAccountPath
+        : path.resolve(process.cwd(), env.firebase.serviceAccountPath)
+    );
   }
 
-  const credentialPath = path.isAbsolute(env.firebase.serviceAccountPath)
-    ? env.firebase.serviceAccountPath
-    : path.resolve(process.cwd(), env.firebase.serviceAccountPath);
+  // Also check standard default paths in process.cwd() and backend folder
+  candidatePaths.push(path.resolve(process.cwd(), 'serviceAccountKey.json'));
+  candidatePaths.push(path.resolve(process.cwd(), 'firebase-service-account.json'));
+  candidatePaths.push(path.resolve(process.cwd(), 'Backend', 'serviceAccountKey.json'));
+  candidatePaths.push(path.resolve(process.cwd(), 'Backend', 'firebase-service-account.json'));
 
-  if (!fs.existsSync(credentialPath)) {
-    console.warn(`Firebase service account file not found at ${credentialPath}. Falling back to env configuration if available.`);
-    return null;
+  for (const credentialPath of candidatePaths) {
+    if (fs.existsSync(credentialPath)) {
+      try {
+        const parsed = parseServiceAccountJson(fs.readFileSync(credentialPath, 'utf8'));
+        if (parsed) return parsed;
+      } catch (error) {
+        console.error(`Firebase service account file read failed at ${credentialPath}:`, error.message);
+      }
+    }
   }
 
-  try {
-    return parseServiceAccountJson(fs.readFileSync(credentialPath, 'utf8'));
-  } catch (error) {
-    console.error('Firebase service account file read failed:', error.message);
-    return null;
-  }
+  return null;
 };
 
 const getFirebaseApp = () => {

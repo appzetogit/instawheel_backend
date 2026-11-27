@@ -6,14 +6,14 @@ export const createDefaultThirdPartySettings = () => {
   return {
     scope: 'default',
     firebase: {
-      firebase_database_url: '',
+      firebase_database_url: 'https://instaawheels-default-rtdb.firebaseio.com',
       firebase_api_key: '',
-      firebase_auth_domain: '',
-      firebase_project_id: '',
-      firebase_storage_bucket: '',
+      firebase_auth_domain: 'instaawheels.firebaseapp.com',
+      firebase_project_id: 'instaawheels',
+      firebase_storage_bucket: 'instaawheels.firebasestorage.app',
       firebase_messaging_sender_id: '',
       firebase_app_id: '',
-      firebase_json_name: 'firebase-service-account.json',
+      firebase_json_name: 'serviceAccountKey.json',
     },
     map_apis: {
       map_type: 'google_map',
@@ -28,7 +28,7 @@ export const createDefaultThirdPartySettings = () => {
       mail_password: '',
       mail_encryption: 'tls',
       mail_from_address: '',
-      mail_from_name: 'PALKI',
+      mail_from_name: 'InstaaWheels',
     },
     sms: {
       firebase: { enabled: '1' },
