@@ -585,7 +585,7 @@ const ServiceGrid = ({
     if (transportType === 'delivery') return '/taxi/user/parcel/type';
     if (serviceType === 'rental') return '/taxi/user/rental';
     if (serviceType === 'outstation') return '/taxi/user/intercity';
-    if (serviceType === 'event') return '/taxi/user/events';
+    if (serviceType === 'event') return null;
     if (serviceType === 'pooling' || moduleName.includes('pooling')) {
       return '/taxi/user/pooling';
     }

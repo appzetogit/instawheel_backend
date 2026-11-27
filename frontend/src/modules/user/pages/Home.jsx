@@ -862,8 +862,8 @@ const Home = () => {
       return;
     }
 
-    if (serviceType === "event") {
-      navigate("/taxi/user/events");
+    if (serviceType === "event" || name.includes("event")) {
+      // HIDDEN (events): event booking disabled
       return;
     }
 

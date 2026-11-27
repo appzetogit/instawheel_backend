@@ -144,6 +144,7 @@ export const ADMIN_SIDEBAR_SECTIONS = [
           { label: 'Pooling Bookings', path: '/admin/pooling/bookings', permission: 'pooling.view' },
         ],
       },
+      /* HIDDEN (events):
       {
         icon: CalendarDays,
         label: 'Event Booking',
@@ -158,6 +159,7 @@ export const ADMIN_SIDEBAR_SECTIONS = [
           { label: 'Event Settings', path: '/admin/events/settings', permission: 'events.view' },
         ],
       },
+      */
       {
         icon: MapPin,
         label: 'Geofencing',

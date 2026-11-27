@@ -258,6 +258,7 @@ const adminRoutes = (
       <Route path="pooling/vehicles/edit/:id" element={<AdminPoolingVehicleForm />} />
       <Route path="pooling/vehicles/view/:id" element={<AdminPoolingVehicleForm mode="view" />} />
       <Route path="pooling/bookings" element={<AdminPoolingBookings />} />
+      {/* HIDDEN (events):
       <Route path="events" element={<Navigate to="/admin/events/bookings" replace />} />
       <Route path="events/bookings" element={<AdminEventBookings />} />
       <Route path="events/types" element={<AdminEventTypes />} />
@@ -267,6 +268,7 @@ const adminRoutes = (
       <Route path="events/inventory" element={<AdminEventInventory />} />
       <Route path="events/withdrawals" element={<AdminEventWithdrawals />} />
       <Route path="events/settings" element={<AdminEventSettings />} />
+      */}
 
       <Route path="wallet/payment" element={<AdminWalletPayment />} />
       <Route path="users" element={<AdminUserList />} />
