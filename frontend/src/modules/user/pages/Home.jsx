@@ -858,7 +858,7 @@ const Home = () => {
     }
 
     if (name.includes("bus") || transportType.includes("bus") || serviceType.includes("bus")) {
-      navigate("/taxi/user/bus");
+      // HIDDEN (bus): navigate("/taxi/user/bus");
       return;
     }
 

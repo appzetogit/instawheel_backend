@@ -33,7 +33,7 @@ const BottomNavbar = () => {
   const navItems = [
     { icon: Home, label: 'Ride', path: '/taxi/user' },
     { icon: Clock, label: 'Rides', path: '/taxi/user/activity' },
-    ...(showBusService ? [{ imageIcon: dynamicBusIcon, label: 'Bus', path: '/taxi/user/bus' }] : []),
+    // HIDDEN (bus): ...(showBusService ? [{ imageIcon: dynamicBusIcon, label: 'Bus', path: '/taxi/user/bus' }] : []),
     { icon: Map, label: 'Support', path: '/taxi/user/support' },
     { icon: User, label: 'Profile', path: '/taxi/user/profile' },
   ];

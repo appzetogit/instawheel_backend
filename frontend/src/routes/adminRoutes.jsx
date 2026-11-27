@@ -442,7 +442,7 @@ const adminRoutes = (
       <Route path="masters/roles" element={<Navigate to="/admin/management/admins" replace />} />
 
       <Route path="settings/business/general" element={<AdminGeneralSettings />} />
-      <Route path="settings/business/customization" element={<AdminCustomizationSettings />} />
+      {/* HIDDEN (bus): <Route path="settings/business/customization" element={<AdminCustomizationSettings />} /> */}
       <Route path="settings/business/transport-ride" element={<AdminTransportRideSettings />} />
       <Route path="settings/business/bid-ride" element={<AdminBidRideSettings />} />
       <Route path="settings/business/driver-subscription" element={<AdminDriverSubscriptionSettings />} />
