@@ -937,7 +937,9 @@ const ParcelSearchingDriver = () => {
               <div className="w-10 h-1.5 bg-slate-100 rounded-full mx-auto mb-2" />
 
               <div className="text-center space-y-1.5">
-                <h1 className="text-[22px] font-extrabold text-slate-950 tracking-tight">Finding your delivery captain</h1>
+                <h1 className="text-[22px] font-extrabold text-slate-950 tracking-tight">
+                  {routeState.parcel?.isOutstation || routeState.isOutstation ? 'Finding Outstation Delivery Truck' : 'Finding your delivery captain'}
+                </h1>
                 <p className="text-[13px] font-semibold text-slate-400 max-w-[260px] mx-auto leading-normal">{searchStatus}</p>
               </div>
 

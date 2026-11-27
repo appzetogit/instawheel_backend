@@ -833,12 +833,18 @@ const emitRideRequestToDrivers = async ({
     });
   }
 
+  const isOutstationParcel = ride.serviceType === 'parcel' && Boolean(ride.parcel?.isOutstation || ride.parcel?.deliveryScope === 'outstation');
+  const parcelTitle = isOutstationParcel ? 'New Outstation Delivery request' : 'New delivery request';
+  const parcelVehicleLabel = isOutstationParcel
+    ? (vehicleLabel ? `${vehicleLabel} (Outstation)` : 'Outstation Delivery')
+    : (vehicleLabel || 'Parcel');
+
   // Sent per driver, not as one multicast: the card shows how far *this*
   // driver is from the pickup, which differs for each of them.
   for (const driver of targetDrivers) {
     sendPushNotificationToEntities({
       driverIds: [String(driver._id)],
-      title: ride.serviceType === 'parcel' ? 'New delivery request' : 'New ride request',
+      title: ride.serviceType === 'parcel' ? parcelTitle : 'New ride request',
       body: ride.pickupAddress
         ? `Pickup: ${ride.pickupAddress}`
         : 'A new booking is waiting for your response.',
@@ -850,6 +856,8 @@ const emitRideRequestToDrivers = async ({
         type: 'ride_request',
         rideId: String(ride._id),
         serviceType: ride.serviceType || 'ride',
+        deliveryScope: ride.parcel?.deliveryScope || (isOutstationParcel ? 'outstation' : 'city'),
+        isOutstation: isOutstationParcel,
         userId: String(ride.userId?._id || ride.userId || ''),
         // Everything below is what the native card renders. It has to be
         // drawable with the app killed and no network, so anything missing here
@@ -870,7 +878,7 @@ const emitRideRequestToDrivers = async ({
         // The real catalog name ("Zi Mini Truck") when the vehicle resolved;
         // falls back to the generic type only if it didn't (e.g. a ride with
         // no vehicleTypeId at all), so the card is never blank.
-        vehicleLabel: vehicleLabel || (ride.serviceType === 'parcel' ? 'Parcel' : 'Ride'),
+        vehicleLabel: ride.serviceType === 'parcel' ? parcelVehicleLabel : (vehicleLabel || 'Ride'),
         expiresInSeconds: String(dispatchConfig.retryWindowSeconds),
       },
     }).catch((error) => {

@@ -40,17 +40,31 @@ const nonNegative = (value) => Math.max(0, Number(value) || 0);
 const isPricedRow = (row) =>
   nonNegative(row.base_price) > 0 || nonNegative(row.price_per_distance) > 0;
 
-const fromSetPrice = (row, source) => ({
-  source,
-  setPriceId: row._id,
-  enabled: true,
-  basePrice: nonNegative(row.base_price),
-  baseDistanceKm: nonNegative(row.base_distance),
-  pricePerKm: nonNegative(row.price_per_distance),
-  serviceTaxPercentage: nonNegative(row.service_tax),
-  waitingChargePerMinute: nonNegative(row.waiting_charge),
-  freeWaitingMinutes: nonNegative(row.free_waiting_before),
-});
+const fromSetPrice = (row, source, isOutstation = false) => {
+  const isOutstationPriced = isOutstation && (nonNegative(row.outstation_price_per_distance) > 0 || nonNegative(row.outstation_base_price) > 0);
+  const basePrice = isOutstationPriced
+    ? nonNegative(row.outstation_base_price || row.base_price)
+    : nonNegative(row.base_price);
+  const baseDistanceKm = isOutstationPriced
+    ? nonNegative(row.outstation_base_distance || row.base_distance)
+    : nonNegative(row.base_distance);
+  const pricePerKm = isOutstationPriced
+    ? nonNegative(row.outstation_price_per_distance || row.price_per_distance)
+    : nonNegative(row.price_per_distance);
+
+  return {
+    source: isOutstationPriced ? `${source}_outstation` : source,
+    setPriceId: row._id,
+    enabled: true,
+    basePrice,
+    baseDistanceKm,
+    pricePerKm,
+    serviceTaxPercentage: nonNegative(row.service_tax),
+    waitingChargePerMinute: nonNegative(row.waiting_charge),
+    freeWaitingMinutes: nonNegative(row.free_waiting_before),
+    isOutstation,
+  };
+};
 
 /// The vehicle's own delivery pricing, in the same shape as a zone tariff.
 export const vehicleDeliveryTariff = (vehicle = {}) => {
@@ -76,8 +90,8 @@ export const vehicleDeliveryTariff = (vehicle = {}) => {
  * none. [vehicle] is a lean Vehicle carrying `delivery_distance_pricing` and
  * `service_tax`; [zone] may be null for a trip outside every polygon.
  */
-export const resolveDeliveryTariff = async ({ vehicle, zone = null } = {}) => {
-  const fallback = vehicleDeliveryTariff(vehicle);
+export const resolveDeliveryTariff = async ({ vehicle, zone = null, isOutstation = false } = {}) => {
+  const fallback = { ...vehicleDeliveryTariff(vehicle), isOutstation };
   const zoneId = toId(zone?._id);
   const serviceLocationId = toId(zone?.service_location_id);
 
@@ -97,7 +111,7 @@ export const resolveDeliveryTariff = async ({ vehicle, zone = null } = {}) => {
     status: 'active',
     $or: scopes,
   })
-    .select('zone_id service_location_id transport_type base_price base_distance price_per_distance service_tax waiting_charge free_waiting_before')
+    .select('zone_id service_location_id transport_type base_price base_distance price_per_distance service_tax waiting_charge free_waiting_before outstation_base_price outstation_base_distance outstation_price_per_distance')
     .sort({ updatedAt: -1, createdAt: -1 })
     .lean();
 
@@ -111,5 +125,5 @@ export const resolveDeliveryTariff = async ({ vehicle, zone = null } = {}) => {
     return fallback;
   }
 
-  return fromSetPrice(best, zoneId && toId(best.zone_id) === zoneId ? 'zone' : 'service_location');
+  return fromSetPrice(best, zoneId && toId(best.zone_id) === zoneId ? 'zone' : 'service_location', isOutstation);
 };

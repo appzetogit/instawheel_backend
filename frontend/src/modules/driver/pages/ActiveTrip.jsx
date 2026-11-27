@@ -136,8 +136,11 @@ const normalizeTripType = (job = {}) => {
     return 'ride';
 };
 
-const getTripTitle = (type) => {
-    if (type === 'parcel') return 'Delivery';
+const getTripTitle = (type, job = {}) => {
+    if (type === 'parcel') {
+        const isOutstation = Boolean(job?.parcel?.isOutstation || job?.parcel?.deliveryScope === 'outstation' || job?.isOutstation);
+        return isOutstation ? 'Outstation Delivery' : 'City Delivery';
+    }
     if (type === 'intercity') return 'Intercity Ride';
     return 'Taxi Ride';
 };
@@ -746,7 +749,7 @@ const buildPersistedTripState = (job = {}, overrides = {}) => {
         currentDriverCoords: mergedJob.lastDriverLocation?.coordinates || mergedJob.driverLocation?.coordinates || null,
         request: {
             type: currentType,
-            title: getTripTitle(currentType),
+            title: getTripTitle(currentType, mergedJob),
             fare: `Rs ${mergedJob.fare || 0}`,
             payment: mergedJob.paymentMethod || 'Cash',
             pickup: getAreaName(mergedJob.pickupAddress, formatAddressFromPoint(mergedJob.pickupLocation, 'Pickup area')),

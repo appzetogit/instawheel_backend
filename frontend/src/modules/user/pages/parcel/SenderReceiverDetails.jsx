@@ -1039,6 +1039,7 @@ const SenderReceiverDetails = () => {
   const [zones, setZones] = useState([]);
   const [zonePaths, setZonePaths] = useState([]);
   const [serviceStores, setServiceStores] = useState([]);
+  const [deliveryScope, setDeliveryScope] = useState(() => parcelState.deliveryScope || (parcelState.isOutstation ? 'outstation' : 'city'));
   const [routeEstimate, setRouteEstimate] = useState({ distanceKm: 0, durationMinutes: 0, source: 'air' });
   const autoPickupRequestedRef = useRef(false);
   const livePickupHydratedRef = useRef(false);
@@ -1250,6 +1251,9 @@ const SenderReceiverDetails = () => {
   const effectiveDistanceKm = Number(routeEstimate?.distanceKm || 0) > 0
     ? Number(routeEstimate.distanceKm)
     : estimatedDistanceKm;
+  const isAutoOutstation = effectiveDistanceKm > 55;
+  const isOutstation = deliveryScope === 'outstation' || isAutoOutstation;
+  const currentScope = isOutstation ? 'outstation' : 'city';
 
   useEffect(() => {
     let active = true;
@@ -1731,16 +1735,16 @@ const SenderReceiverDetails = () => {
         fare: estimatedFare?.approx ?? estimatedFare?.min ?? null,
         estimatedFare,
         estimatedDistanceKm,
-        deliveryScope: parcelState.deliveryScope || 'city',
-        isOutstation: Boolean(parcelState.isOutstation || parcelState.deliveryScope === 'outstation'),
+        deliveryScope: currentScope,
+        isOutstation,
         parcel: {
           category: parcelState.parcelType || 'Parcel',
           weight: parcelState.weight || 'Under 5kg',
           description: parcelState.description || '',
           deliveryCategory: parcelState.deliveryCategory || parcelState.parcel?.deliveryCategory || '',
           goodsTypeFor: parcelState.goodsTypeFor || parcelState.parcel?.goodsTypeFor || '',
-          deliveryScope: parcelState.deliveryScope || 'city',
-          isOutstation: Boolean(parcelState.isOutstation || parcelState.deliveryScope === 'outstation'),
+          deliveryScope: currentScope,
+          isOutstation,
           senderName,
           senderMobile,
           receiverName,
@@ -1818,6 +1822,44 @@ const SenderReceiverDetails = () => {
           animate={{ opacity: 1, y: 0 }}
           className="rounded-[32px] bg-white dark:bg-[#111827] p-5 shadow-[0_20px_50px_rgba(0,0,0,0.08)] border border-slate-50 dark:border-zinc-850 relative"
         >
+          {/* Delivery Scope Selector: City Delivery vs City to City / Outstation */}
+          <div className="mb-4 flex rounded-2xl bg-slate-100 dark:bg-zinc-800/80 p-1">
+            <button
+              type="button"
+              onClick={() => setDeliveryScope('city')}
+              className={`flex-1 rounded-xl py-2 text-center text-[12px] font-bold transition-all ${
+                !isOutstation
+                  ? 'bg-white dark:bg-zinc-900 text-slate-900 dark:text-white shadow-sm'
+                  : 'text-slate-500 hover:text-slate-700 dark:text-zinc-400'
+              }`}
+            >
+              Within City (Local)
+            </button>
+            <button
+              type="button"
+              onClick={() => setDeliveryScope('outstation')}
+              className={`flex-1 rounded-xl py-2 text-center text-[12px] font-bold transition-all ${
+                isOutstation
+                  ? 'bg-emerald-600 text-white shadow-sm'
+                  : 'text-slate-500 hover:text-slate-700 dark:text-zinc-400'
+              }`}
+            >
+              City to City / Outstation
+            </button>
+          </div>
+
+          {isOutstation && (
+            <div className="mb-3.5 flex items-center justify-between rounded-xl bg-emerald-50 dark:bg-emerald-950/40 px-3.5 py-2 text-[11px] font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/60">
+              <span className="flex items-center gap-1.5">
+                <span>🚚</span>
+                <span>Intercity & Interstate Freight Enabled</span>
+              </span>
+              <span className="text-[10px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                {effectiveDistanceKm > 0 ? `${effectiveDistanceKm.toFixed(1)} km` : 'Long Route'}
+              </span>
+            </div>
+          )}
+
           <div className="space-y-3">
             {/* Pickup Row */}
             <div className="flex items-center gap-3">
@@ -2039,7 +2081,9 @@ const SenderReceiverDetails = () => {
           <div className={`absolute left-[-20px] bottom-[-20px] w-36 h-36 rounded-full blur-2xl pointer-events-none ${isDark ? 'bg-emerald-500/5' : 'bg-emerald-400/10'}`} />
           <div className="relative z-10 flex items-center justify-between gap-3">
             <div>
-              <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>Approx. Delivery Fare</p>
+              <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${isDark ? 'text-slate-400' : 'text-slate-500'}`}>
+                {isOutstation ? 'Approx. Outstation Freight Fare' : 'Approx. Delivery Fare'}
+              </p>
               <p className={`mt-1 text-3xl font-black tracking-tight ${isDark ? 'text-white' : 'text-slate-900'}`}>
                 {estimatedFare ? `Rs ${estimatedFare.approx ?? estimatedFare.min}` : '--'}
               </p>

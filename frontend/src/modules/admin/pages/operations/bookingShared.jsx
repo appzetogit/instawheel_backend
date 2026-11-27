@@ -55,8 +55,9 @@ const SERVICE_STYLES = {
   pooling: 'bg-emerald-50 text-emerald-700 ring-emerald-200', parcel: 'bg-orange-50 text-orange-700 ring-orange-200', intercity: 'bg-rose-50 text-rose-700 ring-rose-200',
 };
 export const ServiceBadge = ({ row }) => {
-  const key = row.serviceKey || (row.parcel ? 'parcel' : 'city');
-  const label = row.serviceLabel || (key === 'parcel' ? 'Parcel delivery' : 'City ride');
+  const isOutstationParcel = Boolean(row.parcel && (row.parcel?.isOutstation || row.parcel?.deliveryScope === 'outstation' || row.isOutstation));
+  const key = row.serviceKey || (row.parcel ? (isOutstationParcel ? 'outstation' : 'parcel') : 'city');
+  const label = row.serviceLabel || (row.parcel ? (isOutstationParcel ? 'Outstation Parcel' : 'Parcel delivery') : 'City ride');
   return <span className={`inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold ring-1 ring-inset ${SERVICE_STYLES[key] || 'bg-gray-50 text-gray-600 ring-gray-200'}`}>{label}</span>;
 };
 

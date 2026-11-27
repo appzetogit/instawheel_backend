@@ -111,55 +111,43 @@ const calculateDistanceKm = (fromCoords = [], toCoords = []) => {
   return earthRadiusKm * (2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)));
 };
 
-/// Parcels are an intracity service, so a booking that crosses between cities is
-/// refused.
-///
-/// Only one thing is unambiguous: both ends resolving to *different* operating
-/// zones. Everything else is judged on distance, because a point having no zone
-/// does not mean it is far away — the polygons are drawn tight, and the airport,
-/// Devanahalli and Hoskote all fall outside the 23km Bangalore circle while
-/// being ordinary city jobs. An earlier version of this refused any pickup that
-/// matched no zone, which blocked exactly those.
-///
-/// The distance limit comes from whichever end we could place, using that zone's
-/// own configured maximum where one is set.
+/**
+ * Resolves whether a delivery is intracity (within one city/zone) or
+ * outstation (intercity / across cities / across states).
+ *
+ * Supports:
+ * - City delivery (within same zone/city, up to city limit)
+ * - Intercity & Interstate delivery (city-to-city within state, or state-to-state nationwide)
+ */
 const DEFAULT_INTRACITY_MAX_KM = 60;
 
-const assertIntracityDelivery = async (pickupCoords, dropCoords) => {
+const resolveDeliveryScopeAndZone = async (pickupCoords, dropCoords, requestedScope = null) => {
   const [pickupZone, dropZone] = await Promise.all([
     findZoneByPickup(pickupCoords),
     findZoneByPickup(dropCoords),
   ]);
 
-  // Both ends inside known, different cities: intercity by definition.
-  if (pickupZone && dropZone && String(pickupZone._id) !== String(dropZone._id)) {
-    throw new ApiError(
-      400,
-      `Parcels are available within one city only. This pickup is in ${pickupZone.name} and the drop is in ${dropZone.name}.`,
-    );
-  }
-
-  if (pickupZone && dropZone) {
-    return pickupZone;
-  }
-
-  // At least one end sits outside every polygon. Judge it on distance instead of
-  // refusing, so city work near the boundary still books while a long-distance
-  // hop does not slip through at intracity rates.
-  const knownZone = pickupZone || dropZone;
-  const limitKm = Number(knownZone?.maximum_distance_for_regular_rides) > 0
+  const distanceKm = calculateDistanceKm(pickupCoords, dropCoords);
+  const knownZone = pickupZone || dropZone || null;
+  const cityLimitKm = Number(knownZone?.maximum_distance_for_regular_rides) > 0
     ? Number(knownZone.maximum_distance_for_regular_rides)
     : DEFAULT_INTRACITY_MAX_KM;
-  const distanceKm = calculateDistanceKm(pickupCoords, dropCoords);
 
-  if (distanceKm > limitKm) {
-    throw new ApiError(
-      400,
-      `This trip is too far for a parcel delivery. Parcels are available within one city, up to ${limitKm}km.`,
-    );
-  }
+  const isCrossZone = Boolean(pickupZone && dropZone && String(pickupZone._id) !== String(dropZone._id));
+  const isOverCityDistance = distanceKm > cityLimitKm;
+  const isExplicitOutstation = String(requestedScope || '').trim().toLowerCase() === 'outstation';
 
-  return knownZone || null;
+  const isOutstation = isExplicitOutstation || isCrossZone || isOverCityDistance;
+  const scope = isOutstation ? 'outstation' : 'city';
+
+  return {
+    scope,
+    isOutstation,
+    pricingZone: pickupZone || dropZone || null,
+    pickupZone,
+    dropZone,
+    distanceKm,
+  };
 };
 
 /// Road distance for a parcel fare, or straight-line when no route resolves.
@@ -256,12 +244,16 @@ export const createDeliveryRecord = async ({
   await ensureDeliveryVehicleAllowed({ vehicleTypeId, parcel });
   const pickupCoords = normalizePoint(pickup, 'pickup');
   const dropCoords = normalizePoint(drop, 'drop');
-  const pricingZone = await assertIntracityDelivery(pickupCoords, dropCoords);
+  const { scope, isOutstation, pricingZone } = await resolveDeliveryScopeAndZone(
+    pickupCoords,
+    dropCoords,
+    parcel?.deliveryScope || (parcel?.isOutstation ? 'outstation' : null),
+  );
   const vehicle = vehicleTypeId
     ? await Vehicle.findById(vehicleTypeId).select('delivery_distance_pricing service_tax').lean()
     : null;
   const [tariff, distance] = await Promise.all([
-    resolveDeliveryTariff({ vehicle, zone: pricingZone }),
+    resolveDeliveryTariff({ vehicle, zone: pricingZone, isOutstation }),
     resolveDeliveryDistance(pickupCoords, dropCoords),
   ]);
   const fareBreakdown = computeDeliveryFareBreakdown({ tariff, distanceKm: distance.distanceKm });
@@ -272,6 +264,12 @@ export const createDeliveryRecord = async ({
   if (!(fareBreakdown.total > 0)) {
     throw new ApiError(400, 'Delivery is not priced for this vehicle in this area yet.');
   }
+
+  const normalizedParcel = {
+    ...(parcel || {}),
+    deliveryScope: scope,
+    isOutstation,
+  };
 
   const ride = await createRideRecord({
     userId,
@@ -296,7 +294,7 @@ export const createDeliveryRecord = async ({
     paymentMethod,
     transport_type: 'delivery',
     serviceType: 'parcel',
-    parcel,
+    parcel: normalizedParcel,
   });
 
   // Waiting at the pickup is charged on the same tariff as the fare, and locked
@@ -349,9 +347,11 @@ export const getDeliveryQuote = async ({ vehicleTypeId, pickup, drop, parcel }) 
 
   const pickupCoords = normalizePoint(pickup, 'pickup');
   const dropCoords = normalizePoint(drop, 'drop');
-  // Checked here as well as at booking: a quote that a booking then refuses is
-  // worse than refusing up front. It also names the zone the tariff comes from.
-  const pricingZone = await assertIntracityDelivery(pickupCoords, dropCoords);
+  const { scope, isOutstation, pricingZone } = await resolveDeliveryScopeAndZone(
+    pickupCoords,
+    dropCoords,
+    parcel?.deliveryScope || (parcel?.isOutstation ? 'outstation' : null),
+  );
   const vehicle = await Vehicle.findById(vehicleTypeId)
     .select('name delivery_distance_pricing service_tax')
     .lean();
@@ -361,7 +361,7 @@ export const getDeliveryQuote = async ({ vehicleTypeId, pickup, drop, parcel }) 
   }
 
   const [tariff, distance] = await Promise.all([
-    resolveDeliveryTariff({ vehicle, zone: pricingZone }),
+    resolveDeliveryTariff({ vehicle, zone: pricingZone, isOutstation }),
     resolveDeliveryDistance(pickupCoords, dropCoords),
   ]);
   const fareBreakdown = computeDeliveryFareBreakdown({ tariff, distanceKm: distance.distanceKm });
@@ -370,11 +370,12 @@ export const getDeliveryQuote = async ({ vehicleTypeId, pickup, drop, parcel }) 
     vehicleTypeId: String(vehicleTypeId),
     vehicleName: vehicle.name || '',
     ...fareBreakdown,
-    // Which tariff and which distance priced this, and where. The app ignores
-    // them; they are what make a wrong price diagnosable.
+    // Which tariff and which distance priced this, and where.
     tariffSource: tariff.source,
     distanceSource: distance.source,
     zoneName: pricingZone?.name || null,
+    deliveryScope: scope,
+    isOutstation,
   };
 };
 
